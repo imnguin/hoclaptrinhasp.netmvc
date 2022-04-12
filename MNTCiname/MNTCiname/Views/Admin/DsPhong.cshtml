@@ -1,0 +1,221 @@
+﻿@model IEnumerable<MNTCiname.Models.Phong>
+
+@{
+    ViewBag.Title = "DsPhong";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@Html.AntiForgeryToken()
+<script>
+
+    function xoaTheLoai(id) {
+        let $row = jQuery(`.row-phim[data-id="${id}"]`);
+        let name = $row.attr('data-name');
+        bootbox.confirm({
+            message: "Đồng ý xóa Phòng?",
+            buttons: {
+                confirm: {
+                    label: 'Yes',
+                    className: 'btn-success'
+                },
+                cancel: {
+                    label: 'No',
+                    className: 'btn-danger'
+                }
+            },
+            callback: async function (confirm) {
+                if (confirm) {
+                    let url = `/Admin/XoaPhòng/${id}`;
+                    let $__RequestVerificationToken = jQuery('[name="__RequestVerificationToken"]');
+                    let __RequestVerificationToken = $__RequestVerificationToken.val();
+                    let result = await new Promise((resolve, reject) => {
+                        try {
+                            let request = jQuery.ajax({
+                                method: "POST",
+                                url,
+                                data: { __RequestVerificationToken }
+                            })
+                            request.done(function (msg) {
+                                resolve(true);
+                            })
+                            request.fail(function () {
+                                resolve(false);
+                            });
+                        } catch (e) {
+                            reject(false);
+                        }
+                    });
+
+                    toastr.options = {
+                    }
+                    console.log('result', result)
+                    if (result) {
+                        let $deleteRow = jQuery(`.row-phim[data-id="${id}"]`);
+                        $deleteRow.remove();
+                        toastr.success("Xóa thành công!");
+                    } else {
+                        toastr.error("Xóa không thành công!");
+                    }
+                }
+            }
+        });
+    }
+</script>
+
+<div class="header bg-primary pb-6">
+    <div class="container-fluid">
+        <div class="header-body">
+            <div class="row align-items-center py-4">
+                <div class="col-lg-6 col-7">
+                    @*<h6 class="h2 text-white d-inline-block mb-0">Danh sách thể loại</h6>*@
+                    <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                        <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                            <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="#">Danh sách phòng</a></li>
+                            @*<li class="breadcrumb-item active" aria-current="page">Thể loại</li>*@
+                        </ol>
+                    </nav>
+                </div>
+                <div class="col-lg-6 col-5 text-right">
+                    <a href="@Url.Action("ThemPhong","Admin")" class="btn btn-sm btn-neutral">Tạo mới</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid mt--6">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <!-- Card header -->
+                <div class="card-header border-0">
+                    <h3 class="mb-0">Bảng phòng</h3>
+                </div>
+                <!-- Light table -->
+                <div class="table-responsive">
+                    @*<table class="table">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.TenRap)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.DiaChi)
+                                </th>
+                                <th></th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TenRap)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.DiaChi)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "SuaRap", new { id = item.ID }) |
+                                        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                                        @Html.ActionLink("Delete", "XoaRap", new { id = item.ID })
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>*@
+                    <table class="table align-items-center table-flush">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col" class="sort" data-sort="name">Tên phòng</th>
+                            </tr>
+                        </thead>
+                        <tbody class="list">
+                            @foreach (var item in Model)
+                            {
+                                <tr class="row-the-loai" data-id="@item.ID">
+                                    <td scope="row">
+                                        <a class="dropdown-item" href="@Url.Action("Details", "Details", new {id = item.ID})">@item.TenPhong</a>
+                                    </td>
+
+                                    <td>
+                                        <span class="badge badge-dot mr-4">
+                                            <i class="bg-warning"></i>
+                                            <span class="status">pending</span>
+                                        </span>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td class="text-right">
+                                        <div class="dropdown">
+                                            <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fas fa-ellipsis-v"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                                <a class="dropdown-item" href="@Url.Action("SuaPhong", "Admin", new {id = item.ID})">Chỉnh sửa</a>
+                                                <a class="dropdown-item" onclick="xoaTheLoai(@item.ID)">Xóa</a>
+
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Card footer -->
+                <div class="card-footer py-4">
+                    <nav aria-label="...">
+                        <ul class="pagination justify-content-end mb-0">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1">
+                                    <i class="fas fa-angle-left"></i>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                            </li>
+                            <li class="page-item active">
+                                <a class="page-link" href="#">1</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">
+                                    <i class="fas fa-angle-right"></i>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer pt-0">
+        <div class="row align-items-center justify-content-lg-between">
+            <div class="col-lg-6">
+                <div class="copyright text-center  text-lg-left  text-muted">
+                    © 2020 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">Creative Tim</a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+                    <li class="nav-item">
+                        <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Tim</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md" class="nav-link" target="_blank">MIT License</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</div>

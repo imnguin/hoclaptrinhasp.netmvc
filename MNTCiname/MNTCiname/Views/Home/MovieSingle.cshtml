@@ -1,0 +1,696 @@
+﻿@model MNTCiname.Models.Phim
+<link rel="stylesheet" type="text/css" href="~/Content/js/plugin/rs_slider/layers.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/js/plugin/rs_slider/navigation.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/js/plugin/rs_slider/settings.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/css/style.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/css/responsive.css" />
+<div class="prs_title_main_sec_wrapper">
+    <div class="prs_title_img_overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="prs_title_heading_wrapper">
+                    <h2>@Model.TenPhim</h2>
+                    <ul>
+                        <li>
+                            <a href="/Home/Index">Trang Chủ</a>
+                        </li>
+                        <li>&nbsp;&nbsp; >&nbsp;&nbsp; Phim</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- prs title wrapper End -->
+<!-- prs ms trailer wrapper Start -->
+<div class="prs_ms_trailer_vid_main_wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="prs_heading_section_wrapper">
+                    <h2>Trailer phim</h2>
+                </div>
+            </div>
+            <div class="col-lg-12 col-lg-12 col-lg-12 col-lg-12">
+                <video width="1140" controls height="550">
+                    <source src="~/Content/Trailer/@Model.Trailer" type="video/mp4">
+                </video>
+            </div>
+            <div class="col-lg-12 col-lg-12 col-lg-12 col-lg-12">
+                <div class="prs_ms_trailer_slider_main_wrapper">
+                    <div class="prs_ms_trailer_slider_left_wrapper">
+                        <div class="owl-carousel owl-theme">
+                            <div class="item">
+                                <div class="prs_ms_trailer_slider_left_img_wrapper">
+                                    <img src="~/Content/images/content/Hinhanh/TC1.jpg" alt="vp_img">
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="prs_ms_trailer_slider_left_img_wrapper">
+                                    <img src="~/Content/images/content/Hinhanh/TC2.jpg" alt="vp_img">
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="prs_ms_trailer_slider_left_img_wrapper">
+                                    <img src="~/Content/images/content/Hinhanh/TC3.jpg" alt="vp_img">
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="prs_ms_trailer_slider_left_img_wrapper">
+                                    <img src="~/Content/images/content/Hinhanh/TC4.jpg" alt="vp_img">
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="prs_ms_trailer_slider_left_img_wrapper">
+                                    <img src="~/Content/images/content/Hinhanh/TC5.jpg" alt="vp_img">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="prs_ms_trailer_slider_right_wrapper">
+                        <h2>@Model.PhatHanh</h2>
+                        <p>@Model.TenPhim</p>
+                        <img src="~/Content/images/content/Hinhanh/@Model.Poster" alt="title_img">
+                        <h5><span>Starring -</span> Katirna Saif , Ajay Mehra , Nitin Kumar Senani, Parbesh Verma ,Sandy</h5>
+                        <ul>
+                            <li>
+                                Directed by - <span>Akshay H.</span>
+                            </li>
+                            <li>
+                                Produced by - <span>Ajay S.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- prs ms trailer wrapper End -->
+<!-- prs theater Slider Start -->
+@*<div class="prs_movie_cast_main_slider_wrapper">
+        <div class="prs_movie_cast_heading_wrapper">
+            <h2>Movie Cast</h2>
+        </div>
+        <div class="wrap-album-slider">
+            <ul class="movie-cast-slider">
+                <li class="album-slider__item">
+                    <figure class="album">
+                        <div class="prs_ms_cast_slider_cont_wrapper">
+                            <div class="prs_ms_cast_img_wrapper">
+                                <img src="images/content/movie_single/c1.jpg" alt="cast_img">
+                            </div>
+                            <div class="prs_ms_cast_img_cont_wrapper">
+                                <h4><a href="#">Mariya</a></h4>
+                                <p>(Miano)</p>
+                            </div>
+                        </div>
+                    </figure>
+                    <!-- End album -->
+                </li>
+                <!-- End album slider item -->
+                <li class="album-slider__item">
+                    <figure class="album">
+                        <div class="prs_ms_cast_slider_cont_wrapper">
+                            <div class="prs_ms_cast_img_wrapper">
+                                <img src="images/content/movie_single/c2.jpg" alt="cast_img">
+                            </div>
+                            <div class="prs_ms_cast_img_cont_wrapper">
+                                <h4><a href="#">Kaslera</a></h4>
+                                <p>(Miano)</p>
+                            </div>
+                        </div>
+                    </figure>
+                    <!-- End album -->
+                </li>
+                <!-- End album slider item -->
+                <li class="album-slider__item">
+                    <figure class="album">
+                        <div class="prs_ms_cast_slider_cont_wrapper">
+                            <div class="prs_ms_cast_img_wrapper">
+                                <img src="images/content/movie_single/c3.jpg" alt="cast_img">
+                            </div>
+                            <div class="prs_ms_cast_img_cont_wrapper">
+                                <h4><a href="#">Mariya</a></h4>
+                                <p>(Miano)</p>
+                            </div>
+                        </div>
+                    </figure>
+                    <!-- End album -->
+                </li>
+                <!-- End album slider item -->
+                <li class="album-slider__item">
+                    <figure class="album">
+                        <div class="prs_ms_cast_slider_cont_wrapper">
+                            <div class="prs_ms_cast_img_wrapper">
+                                <img src="images/content/movie_single/c4.jpg" alt="cast_img">
+                            </div>
+                            <div class="prs_ms_cast_img_cont_wrapper">
+                                <h4><a href="#">Vjay</a></h4>
+                                <p>(Miano)</p>
+                            </div>
+                        </div>
+                    </figure>
+                    <!-- End album -->
+                </li>
+                <!-- End album slider item -->
+                <li class="album-slider__item">
+                    <figure class="album">
+                        <div class="prs_ms_cast_slider_cont_wrapper">
+                            <div class="prs_ms_cast_img_wrapper">
+                                <img src="images/content/movie_single/c5.jpg" alt="cast_img">
+                            </div>
+                            <div class="prs_ms_cast_img_cont_wrapper">
+                                <h4><a href="#">Mariya</a></h4>
+                                <p>(Miano)</p>
+                            </div>
+                        </div>
+                    </figure>
+                    <!-- End album -->
+                </li>
+                <!-- End album slider item -->
+                <li class="album-slider__item">
+                    <figure class="album">
+                        <div class="prs_ms_cast_slider_cont_wrapper">
+                            <div class="prs_ms_cast_img_wrapper">
+                                <img src="images/content/movie_single/c6.jpg" alt="cast_img">
+                            </div>
+                            <div class="prs_ms_cast_img_cont_wrapper">
+                                <h4><a href="#">Mariya</a></h4>
+                                <p>(Miano)</p>
+                            </div>
+                        </div>
+                    </figure>
+                    <!-- End album -->
+                </li>
+                <!-- End album slider item -->
+                <li class="album-slider__item">
+                    <figure class="album">
+                        <div class="prs_ms_cast_slider_cont_wrapper">
+                            <div class="prs_ms_cast_img_wrapper">
+                                <img src="images/content/movie_single/c3.jpg" alt="cast_img">
+                            </div>
+                            <div class="prs_ms_cast_img_cont_wrapper">
+                                <h4><a href="#">Mariya</a></h4>
+                                <p>(Miano)</p>
+                            </div>
+                        </div>
+                    </figure>
+                    <!-- End album -->
+                </li>
+                <!-- End album slider item -->
+            </ul>
+            <!-- End slider -->
+        </div>
+    </div>
+    <!-- prs theater Slider End -->*@
+<!-- prs syn Slider Start -->
+<div class="prs_syn_main_section_wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                <div class="prs_syn_cont_wrapper">
+                    <h3>Giới thiệu</h3>
+                    @*<h4><span>Thể loại: -</span> @ViewBag.theloai</h4>*@
+                    <p> @Model.MoTa </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="prs_syn_img_wrapper">
+                    <img src="~/Content/images/content/Hinhanh/@Model.Poster" alt="syn_img">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- prs syn Slider End -->
+<!-- prs videos&photos slider Start -->
+<div class="prs_vp_main_section_wrapper prs_about_vp_main_section_wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="prs_heading_section_wrapper">
+                    <h2>Hình ảnh & Video</h2>
+                </div>
+            </div>
+            <div class="prs_vp_main_slider_wrapper">
+                <div class="prs_vp_left_slidebar_wrapper">
+                    <div class="wrap-album-slider">
+                        <ul class="prs_vp_left_slider">
+                            <li class="album-slider__item prs_vp_hover_overlay">
+                                <figure class="album">
+                                    <div class="prs_vp_img_overlay">
+                                        <img src="~/Content/images/content/Hinhanh/Avatar.jpg" alt="vp_img">	<a href="images/content/vp1.jpg" class="venobox info" data-title="PORTFOLIO TITTLE" data-gall="gall12"><i class="fa fa-search"></i></a>
+                                    </div>
+                                </figure>
+                                <!-- End album -->
+                            </li>
+                            <li class="album-slider__item prs_vp_hover_overlay">
+                                <figure class="album">
+                                    <div class="prs_vp_img_overlay">
+                                        <img src="~/Content/images/content/Hinhanh/BlackWidow.jpg" alt="vp_img">	<a href="images/content/vp2.jpg" class="venobox info" data-title="PORTFOLIO TITTLE" data-gall="gall12"><i class="fa fa-search"></i></a>
+                                    </div>
+                                </figure>
+                                <!-- End album -->
+                            </li>
+                            <li class="album-slider__item prs_vp_hover_overlay">
+                                <figure class="album">
+                                    <div class="prs_vp_img_overlay">
+                                        <img src="~/Content/images/content/Hinhanh/Cogaidentuhomqua.jpg" alt="vp_img">	<a href="images/content/vp3.jpg" class="venobox info" data-title="PORTFOLIO TITTLE" data-gall="gall12"><i class="fa fa-search"></i></a>
+                                    </div>
+                                </figure>
+                                <!-- End album -->
+                            </li>
+                            <li class="album-slider__item prs_vp_hover_overlay">
+                                <figure class="album">
+                                    <div class="prs_vp_img_overlay">
+                                        <img src="~/Content/images/content/Hinhanh/Dunkirk.jpg" alt="vp_img">	<a href="images/content/vp4.jpg" class="venobox info" data-title="PORTFOLIO TITTLE" data-gall="gall12"><i class="fa fa-search"></i></a>
+                                    </div>
+                                </figure>
+                                <!-- End album -->
+                            </li>
+                            <li class="album-slider__item prs_vp_hover_overlay">
+                                <figure class="album">
+                                    <div class="prs_vp_img_overlay">
+                                        <img src="~/Content/images/content/Hinhanh/Emchua18.jpg" alt="vp_img">	<a href="images/content/vp5.jpg" class="venobox info" data-title="PORTFOLIO TITTLE" data-gall="gall12"><i class="fa fa-search"></i></a>
+                                    </div>
+                                </figure>
+                                <!-- End album -->
+                            </li>
+                            <li class="album-slider__item prs_vp_hover_overlay">
+                                <figure class="album">
+                                    <div class="prs_vp_img_overlay">
+                                        <img src="~/Content/images/content/Hinhanh/Kong.jpg" alt="vp_img">	<a href="images/content/vp6.jpg" class="venobox info" data-title="PORTFOLIO TITTLE" data-gall="gall12"><i class="fa fa-search"></i></a>
+                                    </div>
+                                </figure>
+                                <!-- End album -->
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="prs_vp_center_slidebar_wrapper">
+                    <div class="prs_vp_center_slider">
+                        <div class="owl-carousel owl-theme">
+                            <div class="item">
+                                <div class="prs_vp_center_slider_img_wrapper">
+                                    <img src="~/Content/images/content/Hinhanh/Album/Chi13.jpg" alt="vp_img">
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="prs_vp_center_slider_img_wrapper">
+                                    <img src="~/Content/images/content/Hinhanh/Album/Kysingtrung.jpg" alt="vp_img">
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="prs_vp_center_slider_img_wrapper">
+                                    <img src="~/Content/images/content/Hinhanh/Album/Songtuthan.jpg" alt="vp_img">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="prs_vp_right_slidebar_wrapper">
+                    <div class="wrap-album-slider">
+                        <ul class="prs_vp_right_slider">
+                            <li class="album-slider__item prs_vp_hover_overlay">
+                                <figure class="album">
+                                    <div class="prs_vp_img_overlay">
+                                        <img src="~/Content/images/content/Hinhanh/Avatar.jpg" alt="vp_img">	<a href="images/content/vp6.jpg" class="venobox info" data-title="PORTFOLIO TITTLE" data-gall="gall12"><i class="fa fa-search"></i></a>
+                                    </div>
+                                </figure>
+                                <!-- End album -->
+                            </li>
+                            <li class="album-slider__item prs_vp_hover_overlay">
+                                <figure class="album">
+                                    <div class="prs_vp_img_overlay">
+                                        <img src="~/Content/images/content/Hinhanh/BlackWidow.jpg" alt="vp_img">	<a href="~/Content/images/content/Hinhanh/BlackWidow.jpg" class="venobox info" data-title="PORTFOLIO TITTLE" data-gall="gall12"><i class="fa fa-search"></i></a>
+                                    </div>
+                                </figure>
+                                <!-- End album -->
+                            </li>
+                            <li class="album-slider__item prs_vp_hover_overlay">
+                                <figure class="album">
+                                    <div class="prs_vp_img_overlay">
+                                        <img src="~/Content/images/content/Hinhanh/Cogaidentuhomqua.jpg" alt="vp_img">	<a href="images/content/vp4.jpg" class="venobox info" data-title="PORTFOLIO TITTLE" data-gall="gall12"><i class="fa fa-search"></i></a>
+                                    </div>
+                                </figure>
+                                <!-- End album -->
+                            </li>
+                            <li class="album-slider__item prs_vp_hover_overlay">
+                                <figure class="album">
+                                    <div class="prs_vp_img_overlay">
+                                        <img src="~/Content/images/content/Hinhanh/Dunkirk.jpg" alt="vp_img">	<a href="images/content/vp3.jpg" class="venobox info" data-title="PORTFOLIO TITTLE" data-gall="gall12"><i class="fa fa-search"></i></a>
+                                    </div>
+                                </figure>
+                                <!-- End album -->
+                            </li>
+                            <li class="album-slider__item prs_vp_hover_overlay">
+                                <figure class="album">
+                                    <div class="prs_vp_img_overlay">
+                                        <img src="~/Content/images/content/Hinhanh/Emchua18.jpg" alt="vp_img">	<a href="images/content/vp2.jpg" class="venobox info" data-title="PORTFOLIO TITTLE" data-gall="gall12"><i class="fa fa-search"></i></a>
+                                    </div>
+                                </figure>
+                                <!-- End album -->
+                            </li>
+                            <li class="album-slider__item prs_vp_hover_overlay">
+                                <figure class="album">
+                                    <div class="prs_vp_img_overlay">
+                                        <img src="~/Content/images/content/Hinhanh/Kong.jpg" alt="vp_img">	<a href="images/content/vp1.jpg" class="venobox info" data-title="PORTFOLIO TITTLE" data-gall="gall12"><i class="fa fa-search"></i></a>
+                                    </div>
+                                </figure>
+                                <!-- End album -->
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- prs videos&photos slider End -->
+<!-- prs ms scene slider Start -->
+<div class="prs_ms_scene_main_wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="prs_heading_section_wrapper">
+                    <h2>hậu trường</h2>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="prs_ms_scene_slider_wrapper">
+                    <div class="owl-carousel owl-theme">
+                        <div class="item">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="prs_ms_scene_slider_img">
+                                        <img src="~/Content/images/content/Hinhanh/BehindTheScenes/C13.jpg" alt="scene_img">
+                                        <div class="prs_ms_scene_img_overlay">
+                                            <a href="images/content/movie_single/sc1.jpg" class="venobox info" data-title="PORTFOLIO TITTLE" data-gall="gall12"><i class="flaticon-tool"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="prs_ms_scene_slider_img prs_ms_scene_slider_img2">
+                                        <img src="~/Content/images/content/Hinhanh/BehindTheScenes/Kong.jpg" alt="scene_img">
+                                        <div class="prs_ms_scene_img_overlay">
+                                            <a href="images/content/movie_single/sc4.jpg" class="venobox info" data-title="PORTFOLIO TITTLE" data-gall="gall12"><i class="flaticon-tool"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="prs_ms_scene_slider_img">
+                                        <img src="~/Content/images/content/Hinhanh/BehindTheScenes/MC.jpg" alt="scene_img">
+                                        <div class="prs_ms_scene_img_overlay">
+                                            <a href="images/content/movie_single/sc2.jpg" class="venobox info" data-title="PORTFOLIO TITTLE" data-gall="gall12"><i class="flaticon-tool"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="prs_ms_scene_slider_img prs_ms_scene_slider_img2">
+                                        <img src="~/Content/images/content/Hinhanh/BehindTheScenes/NBT.jpg" alt="scene_img">
+                                        <div class="prs_ms_scene_img_overlay">
+                                            <a href="images/content/movie_single/sc5.jpg" class="venobox info" data-title="PORTFOLIO TITTLE" data-gall="gall12"><i class="flaticon-tool"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="prs_ms_scene_slider_img">
+                                        <img src="~/Content/images/content/Hinhanh/BehindTheScenes/TC.jpg" alt="scene_img">
+                                        <div class="prs_ms_scene_img_overlay">
+                                            <a href="images/content/movie_single/sc3.jpg" class="venobox info" data-title="PORTFOLIO TITTLE" data-gall="gall12"><i class="flaticon-tool"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="prs_ms_scene_slider_img prs_ms_scene_slider_img2">
+                                        <img src="~/Content/images/content/Hinhanh/BehindTheScenes/Thor.jpg" alt="scene_img">
+                                        <div class="prs_ms_scene_img_overlay">
+                                            <a href="images/content/movie_single/sc6.jpg" class="venobox info" data-title="PORTFOLIO TITTLE" data-gall="gall12"><i class="flaticon-tool"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- prs ms scene slider End -->
+<!-- prs ms crew Start -->
+<div class="prs_ms_crew_main_wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="prs_heading_section_wrapper">
+                    <h2>Sản xuất</h2>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="prs_ms_crew_left_cont_wrapper">
+                    <ul>
+                        <li>
+                            Director & Screenplay: <span>Johan Doe</span>
+                        </li>
+                        <li>
+                            Presented by: <span>Sandeep S</span>
+                        </li>
+                        <li>
+                            Producers: <span>Farhan S</span>
+                        </li>
+                        <li>
+                            Story: <span>Ajay S</span>
+                        </li>
+                        <li>
+                            Director of Photography: <span>Akshay H</span>
+                        </li>
+                        <li>
+                            Production Designer: <span>Johan Doe</span>
+                        </li>
+                        <li>
+                            Music Composer: <span>Farhan S</span>
+                        </li>
+                        <li>
+                            VFX Supervisor: <span>Shruti J</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="prs_ms_crew_left_cont_wrapper prs_ms_crew_left_cont_wrapper2">
+                    <ul>
+                        <li>
+                            Sound Design: <span>Johan Doe</span>
+                        </li>
+                        <li>
+                            Stunt Choreography: <span>Sandeep S</span>
+                        </li>
+                        <li>
+                            Additional Stunts: <span>Farhan S</span>
+                        </li>
+                        <li>
+                            Dance Choreographers: <span>Ajay S</span>
+                        </li>
+                        <li>
+                            Editor: <span>Akshay H</span>
+                        </li>
+                        <li>
+                            Costume Designers: <span>Johan Doe</span>
+                        </li>
+                        <li>
+                            Dialogues: <span>Farhan S</span>
+                        </li>
+                        <li>
+                            Music Composer: <span>Shruti J</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- prs ms crew End -->
+<!-- prs related movie slider Start -->
+<div class="prs_ms_rm_main_wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="prs_heading_section_wrapper">
+                    <h2>Phim cùng thể loại</h2>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="prs_ms_rm_slider_wrapper">
+                    <div class="owl-carousel owl-theme">
+                        <div class="item">
+                            <div class="prs_upcom_movie_box_wrapper">
+                                <div class="prs_upcom_movie_img_box">
+                                    <img src="images/content/up1.jpg" alt="movie_img" />
+                                    <div class="prs_upcom_movie_img_overlay"></div>
+                                    <div class="prs_upcom_movie_img_btn_wrapper">
+                                        <ul>
+                                            <li>
+                                                <a href="#">View Trailer</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">View Details</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="prs_upcom_movie_content_box">
+                                    <div class="prs_upcom_movie_content_box_inner">
+                                        <h2><a href="#">Busting Car</a></h2>
+                                        <p>Drama , Acation</p>	<i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                    </div>
+                                    <div class="prs_upcom_movie_content_box_inner_icon">
+                                        <ul>
+                                            <li>
+                                                <a href="movie_booking.html"><i class="flaticon-cart-of-ecommerce"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="prs_upcom_movie_box_wrapper">
+                                <div class="prs_upcom_movie_img_box">
+                                    <img src="images/content/up2.jpg" alt="movie_img" />
+                                    <div class="prs_upcom_movie_img_overlay"></div>
+                                    <div class="prs_upcom_movie_img_btn_wrapper">
+                                        <ul>
+                                            <li>
+                                                <a href="#">View Trailer</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">View Details</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="prs_upcom_movie_content_box">
+                                    <div class="prs_upcom_movie_content_box_inner">
+                                        <h2><a href="#">Busting Car</a></h2>
+                                        <p>Drama , Acation</p>	<i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                    </div>
+                                    <div class="prs_upcom_movie_content_box_inner_icon">
+                                        <ul>
+                                            <li>
+                                                <a href="movie_booking.html"><i class="flaticon-cart-of-ecommerce"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="prs_upcom_movie_box_wrapper">
+                                <div class="prs_upcom_movie_img_box">
+                                    <img src="images/content/up3.jpg" alt="movie_img" />
+                                    <div class="prs_upcom_movie_img_overlay"></div>
+                                    <div class="prs_upcom_movie_img_btn_wrapper">
+                                        <ul>
+                                            <li>
+                                                <a href="#">View Trailer</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">View Details</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="prs_upcom_movie_content_box">
+                                    <div class="prs_upcom_movie_content_box_inner">
+                                        <h2><a href="#">Busting Car</a></h2>
+                                        <p>Drama , Acation</p>	<i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                    </div>
+                                    <div class="prs_upcom_movie_content_box_inner_icon">
+                                        <ul>
+                                            <li>
+                                                <a href="movie_booking.html"><i class="flaticon-cart-of-ecommerce"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="prs_upcom_movie_box_wrapper">
+                                <div class="prs_upcom_movie_img_box">
+                                    <img src="images/content/up4.jpg" alt="movie_img" />
+                                    <div class="prs_upcom_movie_img_overlay"></div>
+                                    <div class="prs_upcom_movie_img_btn_wrapper">
+                                        <ul>
+                                            <li>
+                                                <a href="#">View Trailer</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">View Details</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="prs_upcom_movie_content_box">
+                                    <div class="prs_upcom_movie_content_box_inner">
+                                        <h2><a href="#">Busting Car</a></h2>
+                                        <p>Drama , Acation</p>	<i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                    </div>
+                                    <div class="prs_upcom_movie_content_box_inner_icon">
+                                        <ul>
+                                            <li>
+                                                <a href="movie_booking.html"><i class="flaticon-cart-of-ecommerce"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Content/js/jquery.countTo.js"></script>
+<script src="~/Content/js/jquery.inview.min.js"></script>
+<script src="~/Content/js/plugin/rs_slider/jquery.themepunch.revolution.min.js"></script>
+<script src="~/Content/js/plugin/rs_slider/jquery.themepunch.tools.min.js"></script>
+<script src="~/Content/js/plugin/rs_slider/revolution.addon.snow.min.js"></script>
+<script src="~/Content/js/plugin/rs_slider/revolution.extension.actions.min.js"></script>
+<script src="~/Content/js/plugin/rs_slider/revolution.extension.carousel.min.js"></script>
+<script src="~/Content/js/plugin/rs_slider/revolution.extension.kenburn.min.js"></script>
+<script src="~/Content/js/plugin/rs_slider/revolution.extension.layeranimation.min.js"></script>
+<script src="~/Content/js/plugin/rs_slider/revolution.extension.migration.min.js"></script>
+<script src="~/Content/js/plugin/rs_slider/revolution.extension.navigation.min.js"></script>
+<script src="~/Content/js/plugin/rs_slider/revolution.extension.parallax.min.js"></script>
+<script src="~/Content/js/plugin/rs_slider/revolution.extension.slideanims.min.js"></script>
+<script src="~/Content/js/plugin/rs_slider/revolution.extension.video.min.js"></script>
+<script src="~/Content/js/custom.js"></script>

@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.25, 14" name="MNTCinema">
+  <DataContextMoniker Name="/MNTCinemaDataContext" />
+  <nestedChildShapes>
+    <classShape Id="72716cbb-f821-43e7-be21-ad52ec198f28" absoluteBounds="9, 1, 2, 2.5401025390625005">
+      <DataClassMoniker Name="/MNTCinemaDataContext/DatCho" />
+      <nestedChildShapes>
+        <elementListCompartment Id="74cd6663-d87b-4093-a568-27aad5a54177" absoluteBounds="9.015, 1.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8e2afdf4-2a01-42c3-a5b3-f1eeb3f3557c" absoluteBounds="9, 4.5, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/MNTCinemaDataContext/ThoiGian" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e19cf562-b3d6-4c42-91be-d0dedb9ff2f9" absoluteBounds="9.015, 4.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="064b9870-938d-4558-96fe-1c95242642c9" absoluteBounds="6.25, 7.875, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/MNTCinemaDataContext/GheNgoi" />
+      <nestedChildShapes>
+        <elementListCompartment Id="600126d6-3f35-4467-84b4-b1fcc5496fe0" absoluteBounds="6.265, 8.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8202b881-1063-4126-adcf-66f1c2f31fde" absoluteBounds="6.25, 4.25, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/MNTCinemaDataContext/KeHoach" />
+      <nestedChildShapes>
+        <elementListCompartment Id="22e7c379-7b08-413c-9e3b-985dbe553e7c" absoluteBounds="6.265, 4.71, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a0b8c325-7bf2-4498-8148-591cb14001cf" absoluteBounds="6.25, 10.625, 2, 3.1170068359374987">
+      <DataClassMoniker Name="/MNTCinemaDataContext/NguoiDung" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9d03b8a8-3039-4425-a8c8-76a5d319161f" absoluteBounds="6.265, 11.085, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6014628e-c34d-4342-8f07-7c9f23bd50a2" absoluteBounds="3.5, 0.75, 2, 2.9247054036458326">
+      <DataClassMoniker Name="/MNTCinemaDataContext/Phim" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a30c853f-51df-48fb-8f4a-981c5eb64729" absoluteBounds="3.515, 1.21, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a70c890d-544d-42e0-8c91-0251bac340a9" absoluteBounds="3.5, 4.5, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/MNTCinemaDataContext/Phong" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8e964ce1-af00-442b-82e1-83a72885aacb" absoluteBounds="3.515, 4.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1ec3cccc-3916-428a-99ca-4bcb390cb467" absoluteBounds="3.5, 11.625, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/MNTCinemaDataContext/Quyen" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4d20f187-fb2a-4ebf-b2f2-68ba9f4ded19" absoluteBounds="3.515, 12.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="043fa110-1999-4aa5-95a0-91d896c9e467" absoluteBounds="0.75, 4.5, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/MNTCinemaDataContext/RapPhim" />
+      <nestedChildShapes>
+        <elementListCompartment Id="78d7add8-5c7f-4fb2-a333-00fd520532d1" absoluteBounds="0.765, 4.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="eca35f90-a220-4006-9703-efe00a70135a" absoluteBounds="0.75, 2.125, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/MNTCinemaDataContext/TheLoai" />
+      <nestedChildShapes>
+        <elementListCompartment Id="47e66a15-bc4c-4a0b-a0fa-e4374b7d5264" absoluteBounds="0.765, 2.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.25 : 7.875); (8.625 : 7.5); (8.625 : 2.27005126953125); (8.72916666666667 : 2.27005126953125 : JumpStart); (8.89583333333333 : 2.27005126953125 : JumpEnd); (9 : 2.27005126953125)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MNTCinemaDataContext/GheNgoi/GheNgoi_DatCho" />
+      <nodes>
+        <classShapeMoniker Id="064b9870-938d-4558-96fe-1c95242642c9" />
+        <classShapeMoniker Id="72716cbb-f821-43e7-be21-ad52ec198f28" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.25 : 4.25); (7.25 : 2.93632940429688); (8.54166666666667 : 2.93632940429687 : JumpStart); (8.70833333333333 : 2.93632940429688 : JumpEnd); (8.72916666666667 : 2.93632940429687 : JumpStart); (8.89583333333333 : 2.93632940429688 : JumpEnd); (9 : 2.93632940429688)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MNTCinemaDataContext/KeHoach/KeHoach_DatCho" />
+      <nodes>
+        <classShapeMoniker Id="8202b881-1063-4126-adcf-66f1c2f31fde" />
+        <classShapeMoniker Id="72716cbb-f821-43e7-be21-ad52ec198f28" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 5.19314697265625); (8.54166666666667 : 5.19314697265625 : JumpStart); (8.70833333333333 : 5.19314697265625 : JumpEnd); (8.72916666666667 : 5.19314697265625 : JumpStart); (8.89583333333333 : 5.19314697265625 : JumpEnd); (9 : 5.19314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MNTCinemaDataContext/KeHoach/KeHoach_ThoiGian" />
+      <nodes>
+        <classShapeMoniker Id="8202b881-1063-4126-adcf-66f1c2f31fde" />
+        <classShapeMoniker Id="8e2afdf4-2a01-42c3-a5b3-f1eeb3f3557c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 10.6865374615385); (8.8125 : 10.1240374615385); (8.8125 : 1.60377363476563); (9 : 1.60377363476563)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MNTCinemaDataContext/NguoiDung/NguoiDung_DatCho" />
+      <nodes>
+        <classShapeMoniker Id="a0b8c325-7bf2-4498-8148-591cb14001cf" />
+        <classShapeMoniker Id="72716cbb-f821-43e7-be21-ad52ec198f28" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 1.84316470214844); (6.7187475 : 1.84316470214844); (6.7187475 : 4.25)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MNTCinemaDataContext/Phim/Phim_KeHoach" />
+      <nodes>
+        <classShapeMoniker Id="6014628e-c34d-4342-8f07-7c9f23bd50a2" />
+        <classShapeMoniker Id="8202b881-1063-4126-adcf-66f1c2f31fde" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 5.19314697265625); (6.25 : 5.19314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MNTCinemaDataContext/Phong/Phong_KeHoach" />
+      <nodes>
+        <classShapeMoniker Id="a70c890d-544d-42e0-8c91-0251bac340a9" />
+        <classShapeMoniker Id="8202b881-1063-4126-adcf-66f1c2f31fde" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 12.2219962565104); (6.25 : 12.2219962565104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MNTCinemaDataContext/Quyen/Quyen_NguoiDung" />
+      <nodes>
+        <classShapeMoniker Id="1ec3cccc-3916-428a-99ca-4bcb390cb467" />
+        <classShapeMoniker Id="a0b8c325-7bf2-4498-8148-591cb14001cf" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 5.19314697265625); (3.5 : 5.19314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MNTCinemaDataContext/RapPhim/RapPhim_Phong" />
+      <nodes>
+        <classShapeMoniker Id="043fa110-1999-4aa5-95a0-91d896c9e467" />
+        <classShapeMoniker Id="a70c890d-544d-42e0-8c91-0251bac340a9" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 2.72199625651042); (3.5 : 2.72199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MNTCinemaDataContext/TheLoai/TheLoai_Phim" />
+      <nodes>
+        <classShapeMoniker Id="eca35f90-a220-4006-9703-efe00a70135a" />
+        <classShapeMoniker Id="6014628e-c34d-4342-8f07-7c9f23bd50a2" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

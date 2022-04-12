@@ -1,0 +1,290 @@
+﻿@using MNTCiname.Models
+@{ List<LichChieu> lichChieus = ViewBag.lich;}
+@{
+    ViewBag.Title = "MovieBooking";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{ int i = 0; string menu = ""; int j = 0;}
+<link rel="stylesheet" type="text/css" href="~/Content/css/animate.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/css/font-awesome.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/css/fonts.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/css/flaticon.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/css/owl.carousel.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/css/owl.theme.default.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/css/dl-menu.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/css/nice-select.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/css/magnific-popup.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/css/venobox.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/js/plugin/rs_slider/layers.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/js/plugin/rs_slider/navigation.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/js/plugin/rs_slider/settings.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/css/style.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/css/responsive.css" />
+<link rel="stylesheet" id="theme-color" type="text/css" href="#" />
+<!-- favicon links -->
+<link rel="shortcut icon" type="image/png" href="images/header/favicon.ico" />
+<div class="prs_title_main_sec_wrapper">
+    <div class="prs_title_img_overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="prs_title_heading_wrapper">
+                    <h2>@Model.TenPhim</h2>
+                    <ul>
+                        <li>
+                            <a href="/Home/Index">Trang chủ</a>
+                        </li>
+                        <li>&nbsp;&nbsp; >&nbsp;&nbsp; Đặt vé</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- prs title wrapper End -->
+<!-- prs video top Start -->
+<div class="prs_booking_main_div_section_wrapper">
+    <div class="prs_top_video_section_wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <video width="1140" controls height="450" style="border-radius:5px">
+                        <source src="~/Content/Trailer/@Model.Trailer" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- prs video top End -->
+    <!-- st slider rating wrapper Start -->
+    <div class="st_slider_rating_main_wrapper float_left">
+        <div class="container">
+            <div class="st_calender_tabs">
+                <ul class="nav nav-tabs">
+                    @foreach (var item in ViewBag.ngaychieu)
+                    {
+                        if (i == 0)
+                        {
+                            <li class="active">
+                                <a data-toggle="tab" href="#home"><span>@String.Format("{0:ddd d}", item)</span></a>
+                            </li>
+                        }
+                        else if (i == 1)
+                        {
+                            <li class="nav-item">
+                                <a data-toggle="tab" href="#menu1">
+                                    <span>@String.Format("{0:ddd d}", item)</span>
+                                </a>
+                            </li>
+                        }
+                        else
+                        {
+                            menu = "";
+                            menu = "#menu" + i;
+                            <li>
+                                <a data-toggle="tab" href="@menu">
+                                    <span>@String.Format("{0:ddd d}", item)</span>
+                                </a>
+                            </li>
+                        }
+                        i++;
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- st slider rating wrapper End -->
+    <!-- st slider sidebar wrapper Start -->
+    <div class="st_slider_index_sidebar_main_wrapper st_slider_index_sidebar_main_wrapper_booking float_left">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                    <div class="st_indx_slider_main_container float_left">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="tab-content">
+                                    @foreach (var ngay in ViewBag.ngaychieu)
+                                    {
+                                        if (j == 0)
+                                        {
+                                            <div id="home" class="tab-pane active">
+                                                <div class="st_calender_contant_main_wrapper float_left">
+                                                    @foreach (var rap in ViewBag.DSrap)
+                                                    {
+                                                        <div class="st_calender_row_cont st_calender_row_cont2 float_left">
+                                                            <div class="st_calender_asc">
+                                                                <div class="st_calen_asc_heart">
+                                                                    <a href="#">	<i class="fa fa-heart"></i></a>
+                                                                </div>
+                                                                <div class="st_calen_asc_heart_cont">
+                                                                    <h3>@rap</h3>
+                                                                    <ul>
+                                                                        <li>
+                                                                            <img src="~/Content/images/content/fast-food.png">
+                                                                        </li>
+                                                                        <li>
+                                                                            <img src="~/Content/images/content/bill.png">
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                            <div class="st_calen_asc_tecket_time_select">
+                                                                <ul>
+                                                                    @foreach (var item in lichChieus)
+                                                                    {
+                                                                        if (rap.Equals(item.TenRap))
+                                                                        {
+                                                                            <li>
+                                                                                <span>
+                                                                                    <h4>Rs.160.00</h4>
+                                                                                    <p class="asc_pera1">Executive</p>
+                                                                                    <p class="asc_pera2">Filling Fast</p>
+                                                                                </span>
+                                                                                <a href="@Url.Action("SeatBooking","Home", new { idrap=item.IDRap, idphim = item.IDphim, idphong = item.IDPhong, idkehoach=item.IDKeHoach, tenrap = item.TenRap, giochieu = item.GioChieu, ngaychieu = ngay})">@item.GioChieu AM</a>
+                                                                            </li>
+                                                                        }
+                                                                    }
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                </div>
+                                            </div>
+                                            j++;
+                                        }
+                                        else
+                                        {
+                                            menu = "";
+                                            menu = "menu" + j;
+                                            <div id="@menu" class="tab-pane fade">
+                                                <div class="st_calender_contant_main_wrapper float_left">
+                                                    <div class="st_calender_row_cont float_left">
+                                                        @foreach (var rap in ViewBag.DSrap)
+                                                        {
+                                                            <div class="st_calender_row_cont st_calender_row_cont2 float_left">
+                                                                <div class="st_calender_asc">
+                                                                    <div class="st_calen_asc_heart">
+                                                                        <a href="#">	<i class="fa fa-heart"></i></a>
+                                                                    </div>
+                                                                    <div class="st_calen_asc_heart_cont">
+                                                                        <h3>@rap</h3>
+                                                                        <ul>
+                                                                            <li>
+                                                                                <img src="~/Content/images/content/fast-food.png">
+                                                                            </li>
+                                                                            <li>
+                                                                                <img src="~/Content/images/content/bill.png">
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="st_calen_asc_tecket_time_select">
+                                                                    <ul>
+                                                                        @foreach (var item in lichChieus)
+                                                                        {
+                                                                            if (rap.Equals(item.TenRap))
+                                                                            {
+                                                                                <li>
+                                                                                    <span>
+                                                                                        <h4>Rs.160.00</h4>
+                                                                                        <p class="asc_pera1">Executive</p>
+                                                                                        <p class="asc_pera2">Filling Fast</p>
+                                                                                    </span>
+                                                                                    <a href="@Url.Action("SeatBooking","Home", new { idrap=item.IDRap, idphim = item.IDphim, idphong = item.IDPhong, idkehoach=item.IDKeHoach, tenrap = item.TenRap, giochieu = item.GioChieu, ngaychieu = ngay})">@item.GioChieu</a>
+                                                                                </li>
+                                                                            }
+                                                                        }
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            j++;
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <div class="prs_mcc_left_side_wrapper">
+                        <div class="prs_mcc_left_searchbar_wrapper">
+                            <input type="text" placeholder="Tìm Phim">
+                            <button>
+                                <i class="flaticon-tool"></i>
+                            </button>
+                        </div>
+                        <div class="prs_mcc_bro_title_wrapper">
+                            <h2>Thể loại </h2>
+                            <ul>
+                                <li>
+                                    <i class="fa fa-caret-right"></i> &nbsp;&nbsp;&nbsp;<a href="#">Tất cả <span>23,124</span></a>
+                                </li>
+                                <li>
+                                    <i class="fa fa-caret-right"></i> &nbsp;&nbsp;&nbsp;<a href="#">Hành động <span>512</span></a>
+                                </li>
+                                <li>
+                                    <i class="fa fa-caret-right"></i> &nbsp;&nbsp;&nbsp;<a href="#">Tình cảm <span>548</span></a>
+                                </li>
+                                <li>
+                                    <i class="fa fa-caret-right"></i> &nbsp;&nbsp;&nbsp;<a href="#">Võ thuật <span>557</span></a>
+                                </li>
+                                <li>
+                                    <i class="fa fa-caret-right"></i> &nbsp;&nbsp;&nbsp;<a href="#">Âm nhạc <span>554</span></a>
+                                </li>
+                                <li>
+                                    <i class="fa fa-caret-right"></i> &nbsp;&nbsp;&nbsp;<a href="#">Chính kịch <span>567</span></a>
+                                </li>
+                                <li>
+                                    <i class="fa fa-caret-right"></i> &nbsp;&nbsp;&nbsp;<a href="#">Hài hước <span>689</span></a>
+                                </li>
+                                <li>
+                                    <i class="fa fa-caret-right"></i> &nbsp;&nbsp;&nbsp;<a href="#">Kinh dị <span>478</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="prs_mcc_event_title_wrapper">
+                            <h2>Sự Kiện</h2>
+                            <img src="images/content/movie_category/event_img.jpg" alt="event_img">
+                            <h3><a href="#">Music Event in india</a></h3>
+                            <p>
+                                Pune <span><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></span>
+                            </p>
+                            <h4>June 07 <span>08:00-12:00 pm</span></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Content/js/jquery_min.js"></script>
+<script src="~/Content/js/modernizr.js"></script>
+<script src="~/Content/js/bootstrap.js"></script>
+<script src="~/Content/js/owl.carousel.js"></script>
+<script src="~/Content/js/jquery.dlmenu.js"></script>
+<script src="~/Content/js/jquery.sticky.js"></script>
+<script src="~/Content/js/jquery.nice-select.min.js"></script>
+<script src="~/Content/js/jquery.magnific-popup.js"></script>
+<script src="~/Content/js/jquery.bxslider.min.js"></script>
+<script src="~/Content/js/venobox.min.js"></script>
+<script src="~/Content/js/smothscroll_part1.js"></script>
+<script src="~/Content/js/smothscroll_part2.js"></script>
+<script src="~/Content/js/plugin/rs_slider/jquery.themepunch.revolution.min.js"></script>
+<script src="~/Content/js/plugin/rs_slider/jquery.themepunch.tools.min.js"></script>
+<script src="~/Content/js/plugin/rs_slider/revolution.addon.snow.min.js"></script>
+<script src="~/Content/js/plugin/rs_slider/revolution.extension.actions.min.js"></script>
+<script src="~/Content/js/plugin/rs_slider/revolution.extension.carousel.min.js"></script>
+<script src="~/Content/js/plugin/rs_slider/revolution.extension.kenburn.min.js"></script>
+<script src="~/Content/js/plugin/rs_slider/revolution.extension.layeranimation.min.js"></script>
+<script src="~/Content/js/plugin/rs_slider/revolution.extension.migration.min.js"></script>
+<script src="~/Content/js/plugin/rs_slider/revolution.extension.navigation.min.js"></script>
+<script src="~/Content/js/plugin/rs_slider/revolution.extension.parallax.min.js"></script>
+<script src="~/Content/js/plugin/rs_slider/revolution.extension.slideanims.min.js"></script>
+<script src="~/Content/js/plugin/rs_slider/revolution.extension.video.min.js"></script>
+<script src="~/Content/js/custom.js"></script>
+

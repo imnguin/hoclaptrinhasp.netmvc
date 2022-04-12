@@ -1,0 +1,39 @@
+﻿@model MNTCiname.Models.TheLoai
+
+@{
+    ViewBag.Title = "DeleteTheLoai";
+    Layout = "";
+}
+
+
+<div>
+    @Html.AntiForgeryToken();
+</div>
+
+
+@*<h2>DeleteTheLoai</h2>
+
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>TheLoai</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.TheLoai1)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TheLoai1)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>*@

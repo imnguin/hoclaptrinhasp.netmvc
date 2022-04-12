@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MNTCinemaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="DatCho">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_NguoiDung" Type="Int32" Nullable="false" />
+    <Property Name="ID_KeHoach" Type="Int32" Nullable="false" />
+    <Property Name="ID_GheNgoi" Type="Int32" Nullable="false" />
+    <Property Name="Gia" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="TinhTrang" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="GheNgoi" Relationship="Self.FK_DatCho_GheNgoi" FromRole="DatCho" ToRole="GheNgoi" />
+    <NavigationProperty Name="KeHoach" Relationship="Self.FK_DatCho_KeHoach" FromRole="DatCho" ToRole="KeHoach" />
+    <NavigationProperty Name="NguoiDung" Relationship="Self.FK_DatCho_NguoiDung" FromRole="DatCho" ToRole="NguoiDung" />
+  </EntityType>
+  <EntityType Name="GheNgoi">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LoaiGhe" Type="Int32" Nullable="false" />
+    <Property Name="ID_Phong" Type="Int32" Nullable="false" />
+    <Property Name="Hang" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SoGhe" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="DatChoes" Relationship="Self.FK_DatCho_GheNgoi" FromRole="GheNgoi" ToRole="DatCho" />
+    <NavigationProperty Name="Phong" Relationship="Self.FK_GheNgoi_Phong" FromRole="GheNgoi" ToRole="Phong" />
+  </EntityType>
+  <EntityType Name="KeHoach">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Phim" Type="Int32" Nullable="false" />
+    <Property Name="ID_Phong" Type="Int32" Nullable="false" />
+    <Property Name="NgayTao" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="NgayBatDau" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="NgayKetThuc" Type="Time" Nullable="false" Precision="7" />
+    <NavigationProperty Name="DatChoes" Relationship="Self.FK_DatCho_KeHoach" FromRole="KeHoach" ToRole="DatCho" />
+    <NavigationProperty Name="Phim" Relationship="Self.FK_KeHoach_Phim" FromRole="KeHoach" ToRole="Phim" />
+    <NavigationProperty Name="Phong" Relationship="Self.FK_KeHoach_Phong" FromRole="KeHoach" ToRole="Phong" />
+  </EntityType>
+  <EntityType Name="NguoiDung">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TaiKhoan" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MatKhau" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="HinhAnh" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="HoTen" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NgaySinh" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="GioiTinh" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DiaChi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID_Quyen" Type="Int32" Nullable="false" />
+    <Property Name="SDT" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DiemTieuDung" Type="Int32" />
+    <NavigationProperty Name="DatChoes" Relationship="Self.FK_DatCho_NguoiDung" FromRole="NguoiDung" ToRole="DatCho" />
+    <NavigationProperty Name="Quyen" Relationship="Self.FK_NguoiDung_Quyen" FromRole="NguoiDung" ToRole="Quyen" />
+  </EntityType>
+  <EntityType Name="Phim">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenPhim" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MoTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Trailer" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BanQuyen" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TheLoai" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PhatHanh" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DoDai" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="DinhDang" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Poster" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="KeHoaches" Relationship="Self.FK_KeHoach_Phim" FromRole="Phim" ToRole="KeHoach" />
+  </EntityType>
+  <EntityType Name="Phong">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Rap" Type="Int32" Nullable="false" />
+    <Property Name="TenPhong" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="GheNgois" Relationship="Self.FK_GheNgoi_Phong" FromRole="Phong" ToRole="GheNgoi" />
+    <NavigationProperty Name="KeHoaches" Relationship="Self.FK_KeHoach_Phong" FromRole="Phong" ToRole="KeHoach" />
+    <NavigationProperty Name="RapPhim" Relationship="Self.FK_Phong_RapPhim" FromRole="Phong" ToRole="RapPhim" />
+  </EntityType>
+  <EntityType Name="Quyen">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Quyen1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="NguoiDungs" Relationship="Self.FK_NguoiDung_Quyen" FromRole="Quyen" ToRole="NguoiDung" />
+  </EntityType>
+  <EntityType Name="RapPhim">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenRap" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DiaChi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Phongs" Relationship="Self.FK_Phong_RapPhim" FromRole="RapPhim" ToRole="Phong" />
+  </EntityType>
+  <Association Name="FK_DatCho_GheNgoi">
+    <End Role="GheNgoi" Type="Self.GheNgoi" Multiplicity="1" />
+    <End Role="DatCho" Type="Self.DatCho" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GheNgoi">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DatCho">
+        <PropertyRef Name="ID_GheNgoi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DatCho_KeHoach">
+    <End Role="KeHoach" Type="Self.KeHoach" Multiplicity="1" />
+    <End Role="DatCho" Type="Self.DatCho" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KeHoach">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DatCho">
+        <PropertyRef Name="ID_KeHoach" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DatCho_NguoiDung">
+    <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="1" />
+    <End Role="DatCho" Type="Self.DatCho" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NguoiDung">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DatCho">
+        <PropertyRef Name="ID_NguoiDung" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GheNgoi_Phong">
+    <End Role="Phong" Type="Self.Phong" Multiplicity="1" />
+    <End Role="GheNgoi" Type="Self.GheNgoi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Phong">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="GheNgoi">
+        <PropertyRef Name="ID_Phong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KeHoach_Phim">
+    <End Role="Phim" Type="Self.Phim" Multiplicity="1" />
+    <End Role="KeHoach" Type="Self.KeHoach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Phim">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="KeHoach">
+        <PropertyRef Name="ID_Phim" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KeHoach_Phong">
+    <End Role="Phong" Type="Self.Phong" Multiplicity="1" />
+    <End Role="KeHoach" Type="Self.KeHoach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Phong">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="KeHoach">
+        <PropertyRef Name="ID_Phong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NguoiDung_Quyen">
+    <End Role="Quyen" Type="Self.Quyen" Multiplicity="1" />
+    <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quyen">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="NguoiDung">
+        <PropertyRef Name="ID_Quyen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Phong_RapPhim">
+    <End Role="RapPhim" Type="Self.RapPhim" Multiplicity="1" />
+    <End Role="Phong" Type="Self.Phong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RapPhim">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Phong">
+        <PropertyRef Name="ID_Rap" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MNTCinemaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="DatChoes" EntityType="Self.DatCho" />
+    <EntitySet Name="GheNgois" EntityType="Self.GheNgoi" />
+    <EntitySet Name="KeHoaches" EntityType="Self.KeHoach" />
+    <EntitySet Name="NguoiDungs" EntityType="Self.NguoiDung" />
+    <EntitySet Name="Phims" EntityType="Self.Phim" />
+    <EntitySet Name="Phongs" EntityType="Self.Phong" />
+    <EntitySet Name="Quyens" EntityType="Self.Quyen" />
+    <EntitySet Name="RapPhims" EntityType="Self.RapPhim" />
+    <AssociationSet Name="FK_DatCho_GheNgoi" Association="Self.FK_DatCho_GheNgoi">
+      <End Role="GheNgoi" EntitySet="GheNgois" />
+      <End Role="DatCho" EntitySet="DatChoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DatCho_KeHoach" Association="Self.FK_DatCho_KeHoach">
+      <End Role="KeHoach" EntitySet="KeHoaches" />
+      <End Role="DatCho" EntitySet="DatChoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DatCho_NguoiDung" Association="Self.FK_DatCho_NguoiDung">
+      <End Role="NguoiDung" EntitySet="NguoiDungs" />
+      <End Role="DatCho" EntitySet="DatChoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GheNgoi_Phong" Association="Self.FK_GheNgoi_Phong">
+      <End Role="Phong" EntitySet="Phongs" />
+      <End Role="GheNgoi" EntitySet="GheNgois" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KeHoach_Phim" Association="Self.FK_KeHoach_Phim">
+      <End Role="Phim" EntitySet="Phims" />
+      <End Role="KeHoach" EntitySet="KeHoaches" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KeHoach_Phong" Association="Self.FK_KeHoach_Phong">
+      <End Role="Phong" EntitySet="Phongs" />
+      <End Role="KeHoach" EntitySet="KeHoaches" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NguoiDung_Quyen" Association="Self.FK_NguoiDung_Quyen">
+      <End Role="Quyen" EntitySet="Quyens" />
+      <End Role="NguoiDung" EntitySet="NguoiDungs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Phong_RapPhim" Association="Self.FK_Phong_RapPhim">
+      <End Role="RapPhim" EntitySet="RapPhims" />
+      <End Role="Phong" EntitySet="Phongs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

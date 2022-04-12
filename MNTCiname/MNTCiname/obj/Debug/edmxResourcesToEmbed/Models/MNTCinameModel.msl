@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MNTCinemaModelStoreContainer" CdmEntityContainer="MNTCinemaEntities">
+    <EntitySetMapping Name="DatChoes">
+      <EntityTypeMapping TypeName="MNTCinemaModel.DatCho">
+        <MappingFragment StoreEntitySet="DatCho">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ID_NguoiDung" ColumnName="ID_NguoiDung" />
+          <ScalarProperty Name="ID_KeHoach" ColumnName="ID_KeHoach" />
+          <ScalarProperty Name="ID_GheNgoi" ColumnName="ID_GheNgoi" />
+          <ScalarProperty Name="Gia" ColumnName="Gia" />
+          <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GheNgois">
+      <EntityTypeMapping TypeName="MNTCinemaModel.GheNgoi">
+        <MappingFragment StoreEntitySet="GheNgoi">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="LoaiGhe" ColumnName="LoaiGhe" />
+          <ScalarProperty Name="ID_Phong" ColumnName="ID_Phong" />
+          <ScalarProperty Name="Hang" ColumnName="Hang" />
+          <ScalarProperty Name="SoGhe" ColumnName="SoGhe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KeHoaches">
+      <EntityTypeMapping TypeName="MNTCinemaModel.KeHoach">
+        <MappingFragment StoreEntitySet="KeHoach">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ID_Phim" ColumnName="ID_Phim" />
+          <ScalarProperty Name="ID_Phong" ColumnName="ID_Phong" />
+          <ScalarProperty Name="NgayTao" ColumnName="NgayTao" />
+          <ScalarProperty Name="NgayBatDau" ColumnName="NgayBatDau" />
+          <ScalarProperty Name="NgayKetThuc" ColumnName="NgayKetThuc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NguoiDungs">
+      <EntityTypeMapping TypeName="MNTCinemaModel.NguoiDung">
+        <MappingFragment StoreEntitySet="NguoiDung">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TaiKhoan" ColumnName="TaiKhoan" />
+          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+          <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="ID_Quyen" ColumnName="ID_Quyen" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="DiemTieuDung" ColumnName="DiemTieuDung" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Phims">
+      <EntityTypeMapping TypeName="MNTCinemaModel.Phim">
+        <MappingFragment StoreEntitySet="Phim">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TenPhim" ColumnName="TenPhim" />
+          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+          <ScalarProperty Name="Trailer" ColumnName="Trailer" />
+          <ScalarProperty Name="BanQuyen" ColumnName="BanQuyen" />
+          <ScalarProperty Name="TheLoai" ColumnName="TheLoai" />
+          <ScalarProperty Name="PhatHanh" ColumnName="PhatHanh" />
+          <ScalarProperty Name="DoDai" ColumnName="DoDai" />
+          <ScalarProperty Name="DinhDang" ColumnName="DinhDang" />
+          <ScalarProperty Name="Poster" ColumnName="Poster" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Phongs">
+      <EntityTypeMapping TypeName="MNTCinemaModel.Phong">
+        <MappingFragment StoreEntitySet="Phong">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ID_Rap" ColumnName="ID_Rap" />
+          <ScalarProperty Name="TenPhong" ColumnName="TenPhong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Quyens">
+      <EntityTypeMapping TypeName="MNTCinemaModel.Quyen">
+        <MappingFragment StoreEntitySet="Quyen">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Quyen1" ColumnName="Quyen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RapPhims">
+      <EntityTypeMapping TypeName="MNTCinemaModel.RapPhim">
+        <MappingFragment StoreEntitySet="RapPhim">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TenRap" ColumnName="TenRap" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,138 @@
+﻿@model Byte[]
+@using MNTCiname.Models
+@{
+    ViewBag.Title = "ThongBao";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Thongtinve thongtinve = (Thongtinve)Session["Temp"];
+}
+<link rel="stylesheet" type="text/css" href="~/Content/css/animate.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/css/font-awesome.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/css/fonts.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/css/flaticon.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/css/owl.carousel.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/css/owl.theme.default.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/css/dl-menu.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/css/nice-select.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/css/magnific-popup.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/css/venobox.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/js/plugin/rs_slider/layers.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/js/plugin/rs_slider/navigation.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/js/plugin/rs_slider/settings.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/css/style.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/css/responsive.css" />
+<link rel="stylesheet" id="theme-color" type="text/css" href="#" />
+<!-- favicon links -->
+<link rel="shortcut icon" type="image/png" href="images/header/favicon.ico" />
+<div class="prs_title_main_sec_wrapper">
+    <div class="prs_title_img_overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="prs_title_heading_wrapper">
+                    <h2>Confirmation Screen</h2>
+                    <ul>
+                        <li>
+                            <a href="#">Home</a>
+                        </li>
+                        <li>&nbsp;&nbsp; >&nbsp;&nbsp; Confirmation Screen</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="st_bcc_main_main_wrapper float_left">
+    <div class="st_bcc_main_wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="st_bcc_heading_wrapper float_left">
+                        <i class="fa fa-check-circle"></i>
+                        <h3>Số tiền cần phải thanh toán tại quầy: <span>@ViewBag.Gia</span></h3>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="st_bcc_ticket_boxes_wrapper float_left">
+                        <div class="st_bcc_tecket_top_hesder float_left">
+                            <p>Your Booking is Confirmed!</p>	<span>Booking ID @ViewBag.DH </span>
+                        </div>
+                        <div class="st_bcc_tecket_bottom_hesder float_left">
+                            <div class="st_bcc_tecket_bottom_left_wrapper">
+                                <div class="st_bcc_tecket_bottom_inner_left">
+                                    <div class="st_bcc_teckt_bot_inner_img">
+                                        <img src="~/Content/images/content/tcc1.png" alt="img">
+                                    </div>
+                                    <div class="st_bcc_teckt_bot_inner_img_cont">
+                                        <h4>@thongtinve.tenPhim</h4>
+                                        <h3>@thongtinve.ngay | @thongtinve.gioChieu</h3>
+                                        <h6>
+                                            Rạp: @thongtinve.tenRap,<br>
+                                            Trivandrum Audi-5
+                                        </h6>
+                                    </div>
+                                </div>
+                                <div class="st_bcc_tecket_bottom_inner_right">
+                                    <i class="fas fa-chair"></i>
+                                    <h3>
+                                        2 TICKETS <br>
+                                        <span>EXECUTIV - K1, K2</span>
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="st_bcc_tecket_bottom_right_wrapper">
+                                <img src="@String.Format("data:image/png;base64,{0}", Convert.ToBase64String(ViewBag.QRCode))" style="width:150px; height:150px"/>
+                                <h4>Booking ID<br>@ViewBag.DH</h4>
+                            </div>
+                            <div class="st_bcc_tecket_bottom_left_price_wrapper">
+                                <h4>Total Amount</h4>
+                                <h5>@ViewBag.Gia</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="st_bcc_ticket_boxes_bottom_wrapper float_left">
+                        <p>
+                            You can access your ticket from your Profile. We will send you
+                            <br>an e-Mail/SMS Confirmation with in 15 Minutes.
+                        </p>
+                        <ul>
+                            <li>
+                                <a href="#">INVITE FRIENDS</a>
+                            </li>
+                            <li>
+                                <a href="#">Locate Friend</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Content/js/jquery_min.js"></script>
+<script src="~/Content/js/modernizr.js"></script>
+<script src="~/Content/js/bootstrap.js"></script>
+<script src="~/Content/js/owl.carousel.js"></script>
+<script src="~/Content/js/jquery.dlmenu.js"></script>
+<script src="~/Content/js/jquery.sticky.js"></script>
+<script src="~/Content/js/jquery.nice-select.min.js"></script>
+<script src="~/Content/js/jquery.magnific-popup.js"></script>
+<script src="~/Content/js/jquery.bxslider.min.js"></script>
+<script src="~/Content/js/venobox.min.js"></script>
+<script src="~/Content/js/smothscroll_part1.js"></script>
+<script src="~/Content/js/smothscroll_part2.js"></script>
+<script src="~/Content/js/plugin/rs_slider/jquery.themepunch.revolution.min.js"></script>
+<script src="~/Content/js/plugin/rs_slider/jquery.themepunch.tools.min.js"></script>
+<script src="~/Content/js/plugin/rs_slider/revolution.addon.snow.min.js"></script>
+<script src="~/Content/js/plugin/rs_slider/revolution.extension.actions.min.js"></script>
+<script src="~/Content/js/plugin/rs_slider/revolution.extension.carousel.min.js"></script>
+<script src="~/Content/js/plugin/rs_slider/revolution.extension.kenburn.min.js"></script>
+<script src="~/Content/js/plugin/rs_slider/revolution.extension.layeranimation.min.js"></script>
+<script src="~/Content/js/plugin/rs_slider/revolution.extension.migration.min.js"></script>
+<script src="~/Content/js/plugin/rs_slider/revolution.extension.navigation.min.js"></script>
+<script src="~/Content/js/plugin/rs_slider/revolution.extension.parallax.min.js"></script>
+<script src="~/Content/js/plugin/rs_slider/revolution.extension.slideanims.min.js"></script>
+<script src="~/Content/js/plugin/rs_slider/revolution.extension.video.min.js"></script>
+<script src="~/Content/js/custom.js"></script>
+
+

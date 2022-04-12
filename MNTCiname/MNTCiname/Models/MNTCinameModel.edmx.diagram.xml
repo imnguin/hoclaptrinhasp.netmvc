@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="75ed4a7ed486480ba0e22b11c75fd017" Name="Diagram1">
+        <EntityTypeShape EntityType="MNTCinemaModel.DatCho" Width="1.5" PointX="7.5" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MNTCinemaModel.GheNgoi" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MNTCinemaModel.KeHoach" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MNTCinemaModel.NguoiDung" Width="1.5" PointX="5.25" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MNTCinemaModel.Phim" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="MNTCinemaModel.Phong" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MNTCinemaModel.Quyen" Width="1.5" PointX="3" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MNTCinemaModel.RapPhim" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <AssociationConnector Association="MNTCinemaModel.FK_DatCho_GheNgoi" ManuallyRouted="false" />
+        <AssociationConnector Association="MNTCinemaModel.FK_DatCho_KeHoach" ManuallyRouted="false" />
+        <AssociationConnector Association="MNTCinemaModel.FK_DatCho_NguoiDung" ManuallyRouted="false" />
+        <AssociationConnector Association="MNTCinemaModel.FK_GheNgoi_Phong" ManuallyRouted="false" />
+        <AssociationConnector Association="MNTCinemaModel.FK_KeHoach_Phim" ManuallyRouted="false" />
+        <AssociationConnector Association="MNTCinemaModel.FK_KeHoach_Phong" ManuallyRouted="false" />
+        <AssociationConnector Association="MNTCinemaModel.FK_NguoiDung_Quyen" ManuallyRouted="false" />
+        <AssociationConnector Association="MNTCinemaModel.FK_Phong_RapPhim" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MNTCinemaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DatCho">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_NguoiDung" Type="int" Nullable="false" />
+    <Property Name="ID_KeHoach" Type="int" Nullable="false" />
+    <Property Name="ID_GheNgoi" Type="int" Nullable="false" />
+    <Property Name="Gia" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="TinhTrang" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GheNgoi">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LoaiGhe" Type="int" Nullable="false" />
+    <Property Name="ID_Phong" Type="int" Nullable="false" />
+    <Property Name="Hang" Type="text" Nullable="false" />
+    <Property Name="SoGhe" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KeHoach">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Phim" Type="int" Nullable="false" />
+    <Property Name="ID_Phong" Type="int" Nullable="false" />
+    <Property Name="NgayTao" Type="date" Nullable="false" />
+    <Property Name="NgayBatDau" Type="time" Precision="7" Nullable="false" />
+    <Property Name="NgayKetThuc" Type="time" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NguoiDung">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TaiKhoan" Type="text" Nullable="false" />
+    <Property Name="MatKhau" Type="text" Nullable="false" />
+    <Property Name="HinhAnh" Type="text" />
+    <Property Name="HoTen" Type="text" Nullable="false" />
+    <Property Name="NgaySinh" Type="date" Nullable="false" />
+    <Property Name="GioiTinh" Type="text" Nullable="false" />
+    <Property Name="Email" Type="text" />
+    <Property Name="DiaChi" Type="text" Nullable="false" />
+    <Property Name="ID_Quyen" Type="int" Nullable="false" />
+    <Property Name="SDT" Type="text" Nullable="false" />
+    <Property Name="DiemTieuDung" Type="int" />
+  </EntityType>
+  <EntityType Name="Phim">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenPhim" Type="text" Nullable="false" />
+    <Property Name="MoTa" Type="text" />
+    <Property Name="Trailer" Type="text" Nullable="false" />
+    <Property Name="BanQuyen" Type="text" Nullable="false" />
+    <Property Name="TheLoai" Type="text" Nullable="false" />
+    <Property Name="PhatHanh" Type="date" Nullable="false" />
+    <Property Name="DoDai" Type="time" Precision="7" Nullable="false" />
+    <Property Name="DinhDang" Type="text" />
+    <Property Name="Poster" Type="text" />
+  </EntityType>
+  <EntityType Name="Phong">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Rap" Type="int" Nullable="false" />
+    <Property Name="TenPhong" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Quyen">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Quyen" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RapPhim">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenRap" Type="text" Nullable="false" />
+    <Property Name="DiaChi" Type="text" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_DatCho_GheNgoi">
+    <End Role="GheNgoi" Type="Self.GheNgoi" Multiplicity="1" />
+    <End Role="DatCho" Type="Self.DatCho" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GheNgoi">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DatCho">
+        <PropertyRef Name="ID_GheNgoi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DatCho_KeHoach">
+    <End Role="KeHoach" Type="Self.KeHoach" Multiplicity="1" />
+    <End Role="DatCho" Type="Self.DatCho" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KeHoach">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DatCho">
+        <PropertyRef Name="ID_KeHoach" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DatCho_NguoiDung">
+    <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="1" />
+    <End Role="DatCho" Type="Self.DatCho" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NguoiDung">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DatCho">
+        <PropertyRef Name="ID_NguoiDung" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GheNgoi_Phong">
+    <End Role="Phong" Type="Self.Phong" Multiplicity="1" />
+    <End Role="GheNgoi" Type="Self.GheNgoi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Phong">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="GheNgoi">
+        <PropertyRef Name="ID_Phong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KeHoach_Phim">
+    <End Role="Phim" Type="Self.Phim" Multiplicity="1" />
+    <End Role="KeHoach" Type="Self.KeHoach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Phim">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="KeHoach">
+        <PropertyRef Name="ID_Phim" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KeHoach_Phong">
+    <End Role="Phong" Type="Self.Phong" Multiplicity="1" />
+    <End Role="KeHoach" Type="Self.KeHoach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Phong">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="KeHoach">
+        <PropertyRef Name="ID_Phong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NguoiDung_Quyen">
+    <End Role="Quyen" Type="Self.Quyen" Multiplicity="1" />
+    <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quyen">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="NguoiDung">
+        <PropertyRef Name="ID_Quyen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Phong_RapPhim">
+    <End Role="RapPhim" Type="Self.RapPhim" Multiplicity="1" />
+    <End Role="Phong" Type="Self.Phong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RapPhim">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Phong">
+        <PropertyRef Name="ID_Rap" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MNTCinemaModelStoreContainer">
+    <EntitySet Name="DatCho" EntityType="Self.DatCho" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GheNgoi" EntityType="Self.GheNgoi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KeHoach" EntityType="Self.KeHoach" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NguoiDung" EntityType="Self.NguoiDung" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Phim" EntityType="Self.Phim" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Phong" EntityType="Self.Phong" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Quyen" EntityType="Self.Quyen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RapPhim" EntityType="Self.RapPhim" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_DatCho_GheNgoi" Association="Self.FK_DatCho_GheNgoi">
+      <End Role="GheNgoi" EntitySet="GheNgoi" />
+      <End Role="DatCho" EntitySet="DatCho" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DatCho_KeHoach" Association="Self.FK_DatCho_KeHoach">
+      <End Role="KeHoach" EntitySet="KeHoach" />
+      <End Role="DatCho" EntitySet="DatCho" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DatCho_NguoiDung" Association="Self.FK_DatCho_NguoiDung">
+      <End Role="NguoiDung" EntitySet="NguoiDung" />
+      <End Role="DatCho" EntitySet="DatCho" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GheNgoi_Phong" Association="Self.FK_GheNgoi_Phong">
+      <End Role="Phong" EntitySet="Phong" />
+      <End Role="GheNgoi" EntitySet="GheNgoi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KeHoach_Phim" Association="Self.FK_KeHoach_Phim">
+      <End Role="Phim" EntitySet="Phim" />
+      <End Role="KeHoach" EntitySet="KeHoach" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KeHoach_Phong" Association="Self.FK_KeHoach_Phong">
+      <End Role="Phong" EntitySet="Phong" />
+      <End Role="KeHoach" EntitySet="KeHoach" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NguoiDung_Quyen" Association="Self.FK_NguoiDung_Quyen">
+      <End Role="Quyen" EntitySet="Quyen" />
+      <End Role="NguoiDung" EntitySet="NguoiDung" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Phong_RapPhim" Association="Self.FK_Phong_RapPhim">
+      <End Role="RapPhim" EntitySet="RapPhim" />
+      <End Role="Phong" EntitySet="Phong" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

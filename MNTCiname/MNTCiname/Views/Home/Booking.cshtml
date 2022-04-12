@@ -1,0 +1,297 @@
+﻿@using MNTCiname.Models
+@{
+    Layout = null;
+    Thongtinve thongtinve = (Thongtinve)Session["Temp"];
+    List<GheNgoi> gheNgoi = (List<GheNgoi>)Session["ghe"];
+    NguoiDung nguoiDung = (NguoiDung)Session["nguoidung"];
+    DateTime time = DateTime.Today.Add(thongtinve.gioChieu);
+    string displayTime = time.ToString("hh:mm tt");
+}
+
+<!DOCTYPE html>
+<!--
+Template Name: Movie Pro
+Version: 1.0.0
+Author: Webstrot
+
+-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zxx">
+<!--[endif]-->
+
+<head>
+    <meta charset="utf-8" />
+    <title>MNT Cinema</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="description" content="Movie Pro" />
+    <meta name="keywords" content="Movie Pro" />
+    <meta name="author" content="" />
+    <meta name="MobileOptimized" content="320" />
+    <!--Template style -->
+    <link rel="stylesheet" type="text/css" href="~/Content/css/animate.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/flaticon.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/owl.carousel.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/owl.theme.default.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/dl-menu.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/nice-select.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/magnific-popup.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/venobox.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/js/plugin/rs_slider/layers.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/js/plugin/rs_slider/navigation.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/js/plugin/rs_slider/settings.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/seat.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/responsive.css" />
+    <link rel="stylesheet" id="theme-color" type="text/css" href="#" />
+    <!-- favicon links -->
+    <link rel="shortcut icon" type="image/png" href="images/header/favicon.ico" />
+</head>
+
+<body class="booking_type_back">
+    <!-- preloader Start -->
+    <div id="preloader">
+        <div id="status">
+            <img src="images/header/horoscope.gif" id="preloader_image" alt="loader">
+        </div>
+    </div>
+    <!-- color picker start -->
+    <!-- st top header Start -->
+    <div class="st_bt_top_header_wrapper float_left">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+                    <div class="st_bt_top_back_btn float_left">
+                        <a href="/Home/Index"><i class="fas fa-long-arrow-alt-left"></i> &nbsp;Quay lại</a>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="st_bt_top_center_heading float_left">
+                        <h3>@thongtinve.tenPhim - (@thongtinve.gioChieu)</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- st top header Start -->
+    <!-- st dtts section Start -->
+    <div class="st_dtts_wrapper float_left">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
+                    <div class="st_dtts_left_main_wrapper float_left">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="st_dtts_ineer_box float_left">
+                                    <ul>
+                                        <li>
+                                            <span class="dtts1">Ngày</span>  <span class="dtts2">@String.Format("{0:dddd, MMMM d, yyyy}", thongtinve.ngay)</span>
+                                        </li>
+                                        <li>
+                                            <span class="dtts1">Giờ</span>  <span class="dtts2">@displayTime</span>
+                                        </li>
+                                        <li>
+                                            <span class="dtts1">Rạp</span>  <span class="dtts2">@thongtinve.tenRap</span>
+                                        </li>
+                                        <li>
+                                            <span class="dtts1">Giá</span>  <span class="dtts2">@ViewBag.gia VND</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="st_cherity_section float_left">
+                                    <div class="st_cherity_img float_left">
+                                        <img src="~/Content/images/content/cc1.jpg" alt="img">
+                                    </div>
+                                    <div class="st_cherity_img_cont float_left">
+                                        <div class="box">
+                                            <p class="cc_pc_color1">
+                                                <input type="checkbox" id="c201" name="cb">
+                                                <label for="c201"><span>ADD Rs. 2</span> to your transaction as a donation. (Uncheck if you do not wish to donate)</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="st_cherity_btn float_left">
+                                    <h3>PHƯƠNG THỨC THANH TOÁN</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="@Url.Action("DatCho", "Home")"><i class="flaticon-tickets"></i> &nbsp;Tại quầy </a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("ThanhToan", "Home")"><i class="flaticon-tickets"></i> &nbsp;Momo</a>
+                                        </li>
+                                        <li>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="st_dtts_bs_wrapper float_left">
+                                <div class="st_dtts_bs_heading float_left">
+                                    <p>@thongtinve.tenRap</p>
+                                </div>
+                                @if (gheNgoi != null)
+                                {
+                                    foreach (var item in gheNgoi)
+                                    {
+                                        <div class="st_dtts_sb_ul float_left">
+                                            <ul>
+
+                                                <li>
+                                                    Cty CP MNT Cinema <br /><span>@thongtinve.tenRap</span>
+                                                </li>
+                                                <li>
+                                                    @thongtinve.tenPhim<br />
+                                                    <span>@String.Format("{0:d}", thongtinve.ngay) - @displayTime</span>
+                                                </li>
+                                                <li>
+                                                    Phòng<br />
+                                                    <span>@thongtinve.phong</span>
+                                                </li>
+                                                <li>
+                                                    Hàng<br />
+                                                    <span>@item.Hang</span>
+                                                </li>
+                                                <li>
+                                                    Số ghế<br />
+                                                    <span>@item.SoGhe</span>
+                                                </li>
+                                                <li>
+                                                    Giá<br />
+                                                    <span> @item.Gia VND</span>
+                                                </li>
+                                                <li>
+                                                    KH
+                                                    <span> @nguoiDung.HoTen</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    }
+                                    <div class="st_dtts_sb_h2 float_left">
+                                        <h3>Tổng cộng <span>@ViewBag.gia VND</span></h3>
+                                        <h4>Current State is <span>Kerala</span></h4>
+                                        <h5>Số tiền phải thanh toán <span>@ViewBag.gia VND</span></h5>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="st_dtts_sb_ul float_left">
+                                        <ul>
+
+                                            <li>
+                                                Cty CP MNT Cinema <br /><span>@thongtinve.tenRap</span>
+                                            </li>
+                                            <li>
+                                                @thongtinve.tenPhim<br />
+                                                <span>19-Dec-2018/ @thongtinve.gioChieu</span>
+                                            </li>
+                                            <li>
+                                                Phòng<br />
+                                                <span>@thongtinve.phong</span>
+                                            </li>
+                                            <li>
+                                                Số ghế<br />
+                                                <span><a href="@Session["Url"]" style="color:red">Vui lòng chọn ghế</a></span>
+                                            </li>
+                                            <li>
+                                                Giá
+                                                <span>0 VND</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="st_dtts_sb_h2 float_left">
+                                        <h3>Tổng cộng <span>0 VND</span></h3>
+                                        <h4>Current State is <span>Kerala</span></h4>
+                                        <h5>Số tiền phải thanh toán <span>0 VND</span></h5>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- st dtts section End -->
+    <!--main js file start-->
+    <script src="~/Content/js/jquery_min.js"></script>
+    <script src="~/Content/js/modernizr.js"></script>
+    <script src="~/Content/js/bootstrap.js"></script>
+    <script src="~/Content/js/owl.carousel.js"></script>
+    <script src="~/Content/js/jquery.dlmenu.js"></script>
+    <script src="~/Content/js/jquery.sticky.js"></script>
+    <script src="~/Content/js/jquery.nice-select.min.js"></script>
+    <script src="~/Content/js/jquery.magnific-popup.js"></script>
+    <script src="~/Content/js/jquery.bxslider.min.js"></script>
+    <script src="~/Content/js/venobox.min.js"></script>
+    <script src="~/Content/js/smothscroll_part1.js"></script>
+    <script src="~/Content/js/smothscroll_part2.js"></script>
+    <script src="~/Content/js/plugin/rs_slider/jquery.themepunch.revolution.min.js"></script>
+    <script src="~/Content/js/plugin/rs_slider/jquery.themepunch.tools.min.js"></script>
+    <script src="~/Content/js/plugin/rs_slider/revolution.addon.snow.min.js"></script>
+    <script src="~/Content/js/plugin/rs_slider/revolution.extension.actions.min.js"></script>
+    <script src="~/Content/js/plugin/rs_slider/revolution.extension.carousel.min.js"></script>
+    <script src="~/Content/js/plugin/rs_slider/revolution.extension.kenburn.min.js"></script>
+    <script src="~/Content/js/plugin/rs_slider/revolution.extension.layeranimation.min.js"></script>
+    <script src="~/Content/js/plugin/rs_slider/revolution.extension.migration.min.js"></script>
+    <script src="~/Content/js/plugin/rs_slider/revolution.extension.navigation.min.js"></script>
+    <script src="~/Content/js/plugin/rs_slider/revolution.extension.parallax.min.js"></script>
+    <script src="~/Content/js/plugin/rs_slider/revolution.extension.slideanims.min.js"></script>
+    <script src="~/Content/js/plugin/rs_slider/revolution.extension.video.min.js"></script>
+    <script src="~/Content/js/custom.js"></script>
+    <!--main js file end-->
+    <script>
+        //* Isotope js
+        function protfolioIsotope() {
+            if ($('.st_fb_filter_left_box_wrapper').length) {
+                // Activate isotope in container
+                $(".protfoli_inner, .portfoli_inner").imagesLoaded(function () {
+                    $(".protfoli_inner, .portfoli_inner").isotope({
+                        layoutMode: 'masonry',
+                    });
+                });
+
+                // Add isotope click function
+                $(".protfoli_filter li").on('click', function () {
+                    $(".protfoli_filter li").removeClass("active");
+                    $(this).addClass("active");
+                    var selector = $(this).attr("data-filter");
+                    $(".protfoli_inner, .portfoli_inner").isotope({
+                        filter: selector,
+                        animationOptions: {
+                            duration: 450,
+                            easing: "linear",
+                            queue: false,
+                        }
+                    });
+                    return false;
+                });
+            };
+        };
+        protfolioIsotope();
+
+        function changeQty(increase) {
+            var qty = parseInt($('.select_number').find("input").val());
+            if (!isNaN(qty)) {
+                qty = increase ? qty + 1 : (qty > 1 ? qty - 1 : 1);
+                $('.select_number').find("input").val(qty);
+            } else {
+                $('.select_number').find("input").val(1);
+            }
+        }
+    </script>
+</body>
+
+</html>

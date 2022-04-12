@@ -1,0 +1,392 @@
+﻿@using MNTCiname.Models;
+@{
+    NguoiDung nguoiDung = (NguoiDung)Session["nguoidung"];
+}
+<script>
+    (async function () {
+        await new Promise(resolve => jQuery(document).ready(resolve));
+        let $ajaxSearchResult = jQuery('#ajax-search-result');
+        jQuery('#search-header').on('input', async function () {
+            let SearchString = jQuery(this).val();
+
+            let url = jQuery(this).closest('form').attr('action');
+            let $__RequestVerificationToken = jQuery('[name="__RequestVerificationToken"]');
+            let __RequestVerificationToken = $__RequestVerificationToken.val();
+            let result = await new Promise((resolve, reject) => {
+                try {
+                    let request = jQuery.ajax({
+                        method: "GET",
+                        url,
+                        data: { SearchString }
+                    })
+                    request.done(function (result) {
+                        resolve(result);
+                    })
+                    request.fail(function () {
+                        resolve(false);
+                    });
+                } catch (e) {
+                    reject(false);
+                }
+            });
+            console.log('result', result);
+            let $result = jQuery(result);
+            let $movies = $result.find('#grid .prs_upcom_movie_box_wrapper');
+            console.log('$movies', $movies)
+            if ($movies && $movies.length) {
+                let movies = []
+                $movies.each((index, value) => {
+                    console.log('value', value)
+                    let title = jQuery(value).find('h2 a').text();
+                    let href = jQuery(value).find('h2 a').attr('href');
+                    let image = jQuery(value).find('.prs_upcom_movie_img_box img').attr('src');
+                    movies.push({
+                        title,
+                        image,
+                        href
+                    })
+                })
+                console.log('movies', movies);
+                $ajaxSearchResult.html('');
+                let item = '';
+                movies.forEach(item => {
+                    item = `<div class="search-item">
+                        <div class="search-item-image">
+                            <img src="${item.image}"/>
+                        </div>
+                        <div class="search-item-title">
+                            ${item.title}
+                        </div>
+                    </div>`
+                    $item = jQuery(item);
+                    $item.on('click', () => {
+                        $ajaxSearchResult.hide();
+                        window.open(item.href, '_self');
+                    })
+                    $ajaxSearchResult.append($item);
+                });
+                $ajaxSearchResult.show();
+            }
+        });
+
+        jQuery('body').not('#search-header').on('click', () => {
+            console.log('click')
+            $ajaxSearchResult.hide();
+        });
+    })();
+
+</script>
+
+<style>
+    #search-header {
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+    }
+
+    .product-heading .con button {
+        border-top-right-radius: 4px !important;
+        border-bottom-right-radius: 4px !important;
+    }
+
+    .product-heading {
+        position: relative;
+    }
+
+    #ajax-search-result {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #FFFFFF;
+    }
+
+        #ajax-search-result .search-item {
+            display: flex;
+            padding: 10px;
+        }
+
+            #ajax-search-result .search-item:hover {
+                background: #ff4444;
+                color: #FFFFFF;
+                cursor: pointer;
+            }
+
+        #ajax-search-result .search-item-image {
+            width: 32px;
+            height: 32px;
+            margin-right: 10px;
+        }
+
+            #ajax-search-result .search-item-image img {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+</style>
+<script src="~/Content/js/Controller/SearchController.js"></script>
+<link href="~/Content/css/jquery-ui.css" rel="stylesheet" />
+<script src="~/Content/js/jquery-ui.js"></script>
+<div id="preloader">
+    <div id="status">
+        <img src="~/Content/images/header/horoscope.gif" id="preloader_image" alt="loader">
+    </div>
+</div>
+<!-- color picker start -->
+<!-- color picker end -->
+<!-- prs navigation Start -->
+<div class="prs_navigation_main_wrapper">
+    <div class="container-fluid">
+        <form action="/Home/Search" method="get">
+            <div id="search_open" class="gc_search_box">
+                <input type="text" placeholder="Search here" id="SearchString" name="SearchString">
+                <button type="submit">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+            </div>
+        </form>
+        <div class="prs_navi_left_main_wrapper">
+            <div class="prs_logo_main_wrapper">
+                <a href="/Home/Index">
+                    <img src="~/Content/images/header/logoMNTCinema.png" alt="logo" />
+                </a>
+            </div>
+            <div class="prs_menu_main_wrapper">
+                <nav class="navbar navbar-default">
+                    <div id="dl-menu" class="xv-menuwrapper responsive-menu">
+                        <button class="dl-trigger">
+                            <img src="~/Content/~/Content/images/header/bars.png" alt="bar_png">
+                        </button>
+                        <div class="prs_mobail_searchbar_wrapper" id="search_button">
+                            <i class="fa fa-search"></i>
+                        </div>
+                        <div class="clearfix"></div>
+                        <ul class="dl-menu">
+                            <li class="parent">
+                                <a href="/Home/Index">Trang Chủ</a>
+                            </li>
+                            <li class="parent megamenu">
+                                <a href="#">Góc Điện Ảnh</a>
+                                <ul class="lg-submenu">
+                                    @foreach (var item in ViewBag.Category)
+                                    {
+                                        <li>
+                                            <a href="@Url.Action("product", "Home", new { id = item.ID })">
+                                                @item.
+                                            1
+                                        </a>
+                                    </li>
+                                }
+                                </ul>
+                            </li>
+                            <li class="parent megamenu">
+                                <a href="#">Phim</a>
+                                <ul class="lg-submenu prs_navi_video_wrapper">
+                                    <li>
+                                        <div class="prs_video_navi_img_main_wrapper">
+                                            <video width="200" controls height="200">
+                                                <source src="~/Content/Trailer/Trailertest.mp4" type="video/mp4">
+                                            </video>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li class="parent">
+                                <a href="#">Hệ Thống</a>
+                                <ul class="lg-submenu">
+                                    <li class="parent">
+                                        <a href="#">Sự Kiện</a>
+                                        <ul class="lg-submenu">
+                                            <li>
+                                                <a href="/Home/EventCategory">Ưu Đãi</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="parent">
+                                        <a href="#">Rạp/Phim</a>
+                                        <ul class="lg-submenu">
+                                            <li>
+                                                <a href="/Home/MovieCategory">Phim Đang Chiếu</a>
+                                            </li>
+                                            <li>
+                                                <a href="/Home/MovieSingle">Phim Hay Tháng</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="parent">
+                                <a href="@Url.Action("Register","User")">Đăng ký</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /dl-menuwrapper -->
+                </nav>
+            </div>
+        </div>
+        <div class="prs_navi_right_main_wrapper">
+            <div class="prs_slidebar_wrapper">
+                <button class="second-nav-toggler" type="button">
+                    <img src="~/Content/images/header/bars.png" alt="bar_png">
+                </button>
+            </div>
+            @if (nguoiDung == null)
+            {
+                <div class="prs_top_login_btn_wrapper">
+                    <div class="prs_animate_btn1">
+                        <ul>
+                            <li>
+                                <a href="@Url.Action("Login","User")" class="button button--tamaya" data-text="Đăng Nhập"><span>Đăng Nhập</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="prs_top_login_btn_wrapper">
+                    <div class="prs_animate_btn1">
+                        <ul>
+                            <li>
+
+                                <a href="@Url.Action("Logout","User")" class="button button--tamaya" data-text="đăng xuất"><span>Đăng Xuất</span></a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            }
+            <div class="product-heading">
+                <div class="con">
+                    <form action="/Home/MovieCategory" method="get">
+                        <input type="text" placeholder="Bạn muốn tìm phim?" style="width:200px;height:50px" id="search-header" name="SearchString" autocomplete="off">
+                        <button type="submit">
+                            <i class="flaticon-tool"></i>
+                        </button>
+                    </form>
+                </div>
+                <div id="ajax-search-result">
+                </div>
+            </div>
+        </div>@if (nguoiDung != null)
+        {
+            <span style="font:18px;color:white; float:right; margin-right:40px">Xin chào! @nguoiDung.HoTen</span>
+        }
+        <div id="mobile-nav" data-prevent-default="true" data-mouse-events="true">
+            <div class="mobail_nav_overlay"></div>
+            <div class="mobile-nav-box">
+                <div class="mobile-logo">
+                    <a href="index.html" class="mobile-main-logo">
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                             width="46.996px" height="40px" viewBox="0 0 46.996 40" enable-background="new 0 0 46.996 40" xml:space="preserve">
+<g>
+                        <g>
+                        <path d="M39.919,19.833C39.919,8.88,30.984,0,19.959,0C8.937,0,0,8.88,0,19.833
+			c0,10.954,8.937,19.834,19.959,19.834C30.984,39.666,39.919,30.787,39.919,19.833z M35.675,14.425
+			c0.379,0,0.686,0.307,0.686,0.683s-0.305,0.683-0.686,0.683c-0.38,0-0.688-0.307-0.688-0.683S35.295,14.425,35.675,14.425z
+			 M34.482,20.461c0,0.491-0.025,0.976-0.071,1.452l-11.214-4.512l6.396-7.733C32.592,12.311,34.482,16.167,34.482,20.461z
+			 M19.083,2.277c0.379,0,0.687,0.305,0.687,0.682c0,0.378-0.306,0.684-0.687,0.684c-0.378,0-0.686-0.306-0.686-0.684
+			C18.396,2.584,18.704,2.277,19.083,2.277z M19.959,6.031c1.916,0,3.743,0.372,5.416,1.042l-6.335,7.662l-6.252-6.82
+			C14.906,6.718,17.351,6.031,19.959,6.031z M3.128,16.473c-0.378,0-0.687-0.306-0.687-0.684c0-0.377,0.307-0.682,0.687-0.682
+			c0.38,0,0.686,0.305,0.686,0.682C3.814,16.167,3.508,16.473,3.128,16.473z M5.535,22.119c-0.063-0.545-0.098-1.098-0.098-1.658
+			c0-3.612,1.339-6.911,3.547-9.444l6.502,7.095L5.535,22.119z M10.462,35.354c-0.379,0-0.687-0.306-0.687-0.683
+			s0.307-0.682,0.687-0.682c0.379,0,0.687,0.305,0.687,0.682S10.842,35.354,10.462,35.354z M6.925,26.828l10.4-4.186l0.239,12.052
+			C12.88,33.921,8.956,30.922,6.925,26.828z M19.513,22.326c-1.529,0-2.771-1.232-2.771-2.752c0-1.521,1.241-2.753,2.771-2.753
+			c1.53,0,2.771,1.232,2.771,2.753C22.284,21.096,21.043,22.326,19.513,22.326z M29.939,33.99c-0.378,0-0.686-0.308-0.686-0.683
+			c0-0.377,0.307-0.683,0.686-0.683s0.688,0.306,0.688,0.683C30.626,33.683,30.319,33.99,29.939,33.99z M22.482,34.672
+			l-0.246-12.388l10.846,4.365C31.098,30.799,27.177,33.854,22.482,34.672z M35.314,34.585c-1.837,1.531-6.061,4.306-6.061,4.306
+			C37.652,36.448,45.953,40,45.953,40l1.043-8.658C41.41,30.454,38.125,32.244,35.314,34.585z" />
+	</g>
+</g>
+</svg><span>MNT Cinema</span>
+                    </a>
+                    <a href="#" class="manu-close"><i class="fa fa-times"></i></a>
+                </div>
+                <ul class="mobile-list-nav">
+                    <li>
+                        <a href="/Home/About">MNT TEAM</a>
+                    </li>
+                    <li>
+                        <a href="/Home/MovieSingle">PHIM</a>
+                    </li>
+                    <li>
+                        <a href="/Home/EventCategory">SỰ KIỆN</a>
+                    </li>
+                    <li>
+                        <a href="/Home/Contact">LIÊN HỆ</a>
+                    </li>
+                    <li>
+                        <a href="/Home/Lichsu">LỊCH SỬ</a>
+                    </li>
+                    <li>
+                        <a href="/Home/Account">TÀI KHOẢN</a>
+                    </li>
+                </ul>
+                @*<div class="product-heading prs_slidebar_searchbar_wrapper">
+                        <div class="con">
+                            <select>
+                                <option>All Categories</option>
+                                <option>Movie</option>
+                                <option>Video</option>
+                            </select>
+                            <input type="text" placeholder="Search Movie , Video , Music">
+                            <button type="submit">
+                                <i class="flaticon-tool"></i>
+                            </button>
+                        </div>
+                    </div>*@
+                <div class="achivement-blog">
+                    <ul class="flat-list">
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-facebook"></i>
+                                <h6>Facebook</h6>
+                                <span class="counter">MNT</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-twitter"></i>
+                                <h6>Twiter</h6>
+                                <span class="counter">MNT</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-pinterest"></i>
+                                <h6>Pinterest</h6>
+                                <span class="counter">MNT</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                @if (nguoiDung == null)
+                {
+                    <div class="prs_top_login_btn_wrapper prs_slidebar_searchbar_btn_wrapper">
+                        <div class="prs_animate_btn1">
+                            <ul>
+                                <li>
+                                    <a href="@Url.Action("Login","User")" class="button button--tamaya" data-text="đăng nhập"><span>đăng nhập</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="prs_top_login_btn_wrapper prs_slidebar_searchbar_btn_wrapper">
+                        <div class="prs_animate_btn1">
+                            <ul>
+                                <li>
+                                    <a href="@Url.Action("Logout","User")" class="button button--tamaya" data-text="đăng xuất"><span>đăng xuất</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- prs navigation End -->
