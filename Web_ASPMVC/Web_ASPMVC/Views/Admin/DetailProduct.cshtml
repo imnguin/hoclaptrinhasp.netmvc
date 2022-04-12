@@ -1,0 +1,91 @@
+﻿@model Web_ASPMVC.Models.Product
+
+@{
+    ViewBag.Title = "DetailProduct";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="row grid-responsive">
+    <div class="column ">
+        <div class="card">
+            <div class="card-title">
+                <h3 style="text-align: center; font-weight: bold">CHI TIẾT SẢN PHẨM</h3>
+            </div>
+            <div class="card-block">
+
+                <dl class="dl-horizontal">
+                    <dt>
+                    </dt>
+                    <dd>
+                        Tên:  @Html.DisplayFor(model => model.Name)
+                    </dd>
+                    <dt>
+                    </dt>
+                    <dd>
+                        Ảnh: <img src="~/Content/Images/Product/@Html.DisplayFor(model => model.Thumbnail)" width="100" height="100" />
+                    </dd>
+                    <dt> 
+                    </dt>
+                    <dd>
+                        Mô tả: @Html.Raw(@Model.Description)
+                    </dd>
+                    <dt>   
+                    </dt>
+                    @if (Model.Status == true)
+                    {
+                        <dd>Trạng thái: Hiển thị</dd>
+                    }
+                    else
+                    {
+                        <dd>Trạng thái: Không Hiển thị</dd>
+                    }
+                    <dt>
+                    </dt>
+                    <dd>
+                        Danh mục: 
+                        @Html.DisplayFor(model => model.IdCategory)
+                    </dd>
+                    <dt>
+                    </dt>
+                    <dd>
+                        Mô tả ngắn: 
+                        @Html.DisplayFor(model => model.Title)
+                    </dd>
+                    <dt>
+                    </dt>
+                    <dd>
+                        Nhóm sản phẩm: 
+                        @Html.DisplayFor(model => model.Group)
+                    </dd>
+                    <dt>
+                    </dt>
+                    <dd>
+                        Màu: 
+                        @Html.DisplayFor(model => model.Color)
+                    </dd>
+                    <dt>   
+                    </dt>
+                    <dd>
+                        Ngày cập nhật: 
+                        @Html.DisplayFor(model => model.UpdateTime)
+                    </dd>
+                    <dt>
+                    </dt>
+                    <dd>
+                        Đơn giá: 
+                        @Html.DisplayFor(model => model.Price) VNĐ
+                    </dd>
+                    <dt>
+                    </dt>
+                    <dd>
+                        Số lượng tồn kho: 
+                        @Html.DisplayFor(model => model.Items_Left)
+                    </dd>
+                </dl>
+            </div>
+            <p>
+                @Html.ActionLink("Sửa", "EditProduct", new { id = Model.ID }) |
+                @Html.ActionLink("Trở về", "ListProduct")
+            </p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,73 @@
+﻿@using Web_ASPMVC.Models
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    <title>HTML5 Admin Template</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700" rel="stylesheet">
+
+    <!-- Template Styles -->
+    <link rel="stylesheet" href="~/Content/Admin/css/font-awesome.min.css">
+
+    <!-- CSS Reset -->
+    <link rel="stylesheet" href="~/Content/Admin/css/normalize.css">
+
+    <!-- Milligram CSS minified -->
+    <link rel="stylesheet" href="~/Content/Admin/css/milligram.min.css">
+
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="~/Content/Admin/css/styles.css">
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--Ckieditor-->
+    <script src="~/Content/Admin/ckeditor/ckeditor.js"></script>
+</head>
+<body>
+    <div class="navbar">
+        <div class="row">
+            <div class="column column-30 col-site-title"><a href="@Url.Action("ListProduct", "Admin")" class="site-title float-left">BatOnMoBile</a></div>
+            <div class="column column-40 col-search">
+                <a href="#" class="search-btn fa fa-search"></a>
+                <input type="text" name="" value="" placeholder="Tìm kiếm..." />
+            </div>
+            <div class="column column-30">
+                <div class="user-section">
+                    <a href="#">
+                        @Html.Action("AdminPartial", "Admin")
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div id="sidebar" class="column">
+            <h5>@Html.ActionLink("Đăng xuất", "Logout", "Admin")</h5>
+            <ul>
+                <li><a href="@Url.Action("Index", "Admin")"><em class="fa fa-home"></em>TRANG CHỦ</a></li>
+                <li><a href="@Url.Action("ListProduct", "Admin")"><em class="fa fa-paint-brush"></em>SẢN PHẨM</a></li>
+                <li><a href="@Url.Action("ListCategory", "Admin")"><em class="fa fa-paint-brush"></em>DANH MỤC</a></li>
+                <li><a href="@Url.Action("ListOrder", "Admin")"><em class="fa fa-paint-brush"></em>ĐƠN HÀNG</a></li>
+                <li><a href="@Url.Action("ListCustomer", "Admin")"><em class="fa fa-paint-brush"></em>KHÁCH HÀNG</a></li>
+                <li><a href="@Url.Action("ListUser", "Admin")"><em class="fa fa-paint-brush"></em>TÀI KHOẢN</a></li>
+
+            </ul>
+        </div>
+        <section id="main-content" class="column column-offset-20">
+            <!--Tables-->
+            @RenderBody()
+            <p class="credit">BatOnMobile.vn by <a href="@Url.Action("Index", "Admin")">Team NLHD</a></p>
+        </section>
+    </div>
+    <script src="~/Content/Admin/js/chart.min.js"></script>
+    <script src="~/Content/Admin/js/chart-data.js"></script>
+    <div>
+
+    </div>
+</body>
+</html>

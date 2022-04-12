@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Bootstrap styles -->
+    <link href="~/Content/Web/css/bootstrap.css" rel="stylesheet" />
+    <!-- Customize styles -->
+    <link href="~/Content/Web/css/style.css" rel="stylesheet" />
+    <!-- font awesome styles -->
+    <link href="~/Content/Web/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <!--[if IE 7]>
+        <link href="css/font-awesome-ie7.min.css" rel="stylesheet">
+    <![endif]-->
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="~/Content/Web/ico/favicon.ico">
+</head>
+<body>
+    <!--
+        Upper Header Section
+    -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="topNav">
+            <div class="container">
+                <div class="alignR">
+                    <div class="pull-left socialNw">
+                        <a href="https://www.facebook.com/lxngamingpubgm/?ref=pages_you_manage"><span class="icon-facebook"></span></a>
+                        <a href="https://www.youtube.com/channel/UCe0KuvZTsLCGP49rrRmhcXg"><span class="icon-youtube"></span></a>
+                    </div>
+                    <a class="active" href="@Url.Action("Index", "Home")"> <span class="icon-home"></span>Trang chủ</a>
+                    <a href="@Url.Action("ProfileCustomer", "Home")"><span class="icon-user"></span>Tài khoản</a>
+                    <a href="@Url.Action("register", "Home")"><span class="icon-edit"></span>Đăng ký</a>
+                    <a href="@Url.Action("About", "Home")"><span class="icon-envelope"></span>Liên hệ</a>
+                    @Html.Action("CartPartial","Cart")
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--
+    Lower Header Section
+    -->
+    <div class="container">
+        <div id="gototop"> </div>
+        <header id="header">
+            <div class="row">
+                <div class="span4">
+                    <h1>
+                        <a class="logo" href="@Url.Action("Index", "Home")">
+                            <img src="~/Content/Images/logo.jpg" alt="BatOnMobile">
+                        </a>
+                    </h1>
+                </div>
+            </div>
+        </header>
+
+        <!--
+        Navigation Bar Section
+        -->
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <div class="nav-collapse">
+                        <ul class="nav span4">
+                            <li class="active">@Html.ActionLink("Trang chủ", "Index", "Home")</li>
+                            <li class="active">@Html.ActionLink("Xem theo danh sách", "listView", "Home")</li>
+                        </ul>
+                        <form action="/Home/Search" method="get" class="navbar-search pull-left">
+                            <input type="text" id="SearchString" name="SearchString" placeholder="Sản phẩm bạn muốn tìm?" class="search-query span3">
+                            <input type="submit" value="Tìm kiếm">
+                        </form>
+                        @Html.Action("Login", "Home")
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--
+        Body Section
+        -->
+        <div class="row">
+            @RenderBody()
+        </diV>
+        <!--Footer -->
+        <footer class="footer">
+            <div class="row-fluid">
+                <div class="span6">
+                    <h5>Liên hệ</h5>
+                    <a href="https://www.facebook.com/lxngamingpubgm/?ref=pages_you_manage">FACEBOOK</a><br>
+                    <P>SĐT: 0332 093 438
+                    <br>EMAIL: xuannguyenmaxpro@gmail.com</P>
+                </div>
+                <div class="span6">
+                    <h5>Địa chỉ</h5>
+                    <p>
+                        Hutech khu công nghệ cao.<br />
+                        Hiệp phú, Quận 9, Tp.HCM<br />
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+        <!-- /container -->
+    <div class="copyright">
+        <div class="container">
+            <span>Copyright &copy; 2021<br>Sinh viên Hutech Design by Team NHLD</span>
+        </div>
+    </div>
+    <a href="#" class="gotop"><i class="icon-double-angle-up"></i></a>
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="~/Content/Web/js/jquery.js"></script>
+    <script src="~/Content/Web/js/bootstrap.min.js"></script>
+    <script src="~/Content/Web/js/jquery.easing-1.3.min.js"></script>
+    <script src="~/Content/Web/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+    <script src="~/Content/Web/js/shop.js"></script>
+</body>
+</html>

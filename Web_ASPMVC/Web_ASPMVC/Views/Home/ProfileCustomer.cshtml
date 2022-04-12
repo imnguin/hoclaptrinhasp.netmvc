@@ -1,0 +1,70 @@
+﻿@using Web_ASPMVC.Models
+@{
+    Customer customer = (Customer)Session["Username"];
+}
+@{
+    ViewBag.Title = "ProfileCustomer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.Action("LeftMenu", "Home")
+<div class="span9">
+    <ul class="breadcrumb">
+        <li><a href="index.html">Trang chủ</a> <span class="divider">/</span></li>
+        <li class="active">Thông tin tài khoản</li>
+    </ul>
+    @if (customer != null)
+    {
+        <h3>Thông tin tài khoản</h3>
+        <hr class="soft" />
+        <div class="well">
+            <form class="form-horizontal" action="/Home/register" method="post">
+                <h3>Thông tin tài khoản</h3>
+                <div class="control-group">
+                    <label class="control-label" for="name">Họ và Tên <sup>*</sup></label>
+                    <div class="controls">
+                        <input type="text" id="Name" name="Name" value="@customer.Name">
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label" for="username">Tài khoản<sup>*</sup></label>
+                    <div class="controls">
+                        <input type="text" id="Username" name="Username" value="@customer.Username">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="password">Mật khẩu<sup>*</sup></label>
+                    <div class="controls">
+                        <input type="password" id="Password" name="Password" value="@customer.Password">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="email">Email <sup>*</sup></label>
+                    <div class="controls">
+                        <input type="text" id="Email" name="Email" value="@customer.Email">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="address">Địa chỉ <sup>*</sup></label>
+                    <div class="controls">
+                        <input type="text" id="Address" name="Address" value="@customer.Address">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="phone">Điện thoại <sup>*</sup></label>
+                    <div class="controls">
+                        <input type="text" id="Phone" name="Phone" value="@customer.Phone">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="birthday">Ngày sinh <sup>*</sup></label>
+                    <div class="controls">
+                        <input type="text" id="Birthday" name="Birthday" value="@customer.Birthday">
+                    </div>
+                </div>
+            </form>
+        </div>
+    }
+
+</div>
+

@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Userlogin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.Action("LeftMenu", "Home")
+<div class="span9">
+    <ul class="breadcrumb">
+        <li><a href="@Url.Action("Index", "Home")">Trang chủ</a> <span class="divider">/</span></li>
+        <li class="active">Đăng nhập</li>
+    </ul>
+    <h3> Vui lòng đăng nhập trước khi thanh toán</h3>
+    <hr class="soft" />
+    <div class="row">
+        <div class="span8">
+            <div class="well">
+                <form class="form-horizontal" action="/Home/Userlogin" method="post">
+                    <h5 style="text-align: center; margin-bottom: 30px">Bạn đã có tài khoản ?</h5>
+                    <div class="control-group">
+                        <label class="control-label" for="username">Tài khoản<sup>*</sup></label>
+                        <div class="controls">
+                            <input type="text" id="Username" name="Username" placeholder="Tài khoản">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="password">Mật khẩu<sup>*</sup></label>
+                        <div class="controls">
+                            <input type="password" id="Password" name="Password" placeholder="Mật khẩu">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <a href="@Url.Action("Forgotpassword", "Home")">Quên mật khẩu?</a>
+                            <a href="@Url.Action("register", "Home")" style="margin-left: 20px">Đăng ký</a>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <button type="submit" class="exclusive shopBtn">Đăng nhập</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

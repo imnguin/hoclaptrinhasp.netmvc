@@ -1,0 +1,99 @@
+﻿@using Web_ASPMVC.Models
+@{
+    List<Product> item = ViewBag.details;
+    List<Product> list = ViewBag.lsproduct;
+}
+@{
+    ViewBag.Title = "productDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.Action("LeftMenu", "Home")
+<div class="span9">
+    <ul class="breadcrumb">
+        <li>@Html.ActionLink("Trang chủ", "Index", "Home") <span class="divider">/</span></li>
+        <li class="active">Chi tiết sản phẩm</li>
+    </ul>
+    <div class="well well-small">
+        <div class="row-fluid">
+            @foreach (var details in item)
+            {
+                <div class="span5">
+                    <div id="myCarousel" class="carousel slide cntr">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <a href="#"> <img src="~/Content/Images/Product/@details.Thumbnail" alt="" style="width:100%"></a>
+                            </div>
+                        </div>
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+                    </div>
+                </div>
+                <div class="span7">
+                    <h3>@details.Name @ViewData["Tilte1"]</h3>
+                    <hr class="soft" />
+                    @using (Html.BeginForm("AddCart", "Cart", new { @iIdPro = details.ID, @strURL = Request.Url.ToString(), @class = "form-horizontal qtyFrm" }))
+                    {
+                        <div class="control-group">
+                            <span style="font-weight:bold; font-size:18px">Chọn số lượng:  </span>
+                            <input type="number" min="1" style="max-width:34px" size="16" name="txtQty" id="txtQty" value="1" />
+                        </div>
+                        <div class="control-group">
+                            <div class="controls">
+                                <span style="font-weight:bold; font-size:18px">Chọn màu:  </span>
+                                <select class="span11" id="txtColor" name="txtColor" style="width:70px">
+                                    <option value="Đỏ">Đỏ</option>
+                                    <option value="Đen">Đen</option>
+                                    <option value="Trắng">Trắng</option>
+                                </select>
+                            </div>
+                        </div>
+                        <h4>Sẵn hàng: @details.Items_Left sản phẩm</h4>
+                        <button type="submit" class="shopBtn"><span class=" icon-shopping-cart"></span> Add to cart</button>
+                    }
+                </div>
+            }
+
+        </div>
+        <hr class="softn clr" />
+        <ul id="productDetail" class="nav nav-tabs">
+            <li class="active"><a href="#home" data-toggle="tab">Chi tiết sản phẩm</a></li>
+            <li class=""><a href="#profile" data-toggle="tab">Sản phẩm liên quan</a></li>
+        </ul>
+        <div id="myTabContent" class="tab-content tabWrapper">
+
+            <div class="tab-pane fade active in" id="home">
+                @foreach (var details in item)
+                {
+                    @Html.Raw(details.Description)
+                }
+            </div>
+            <div class="tab-pane fade" id="profile">
+                @foreach (var pro in list)
+                {
+                    <div class="row-fluid">
+
+                        <div class="span2">
+                            <img src="~/Content/Images/Product/@pro.Thumbnail" alt="">
+                        </div>
+                        <div class="span6">
+                            <h5>@pro.Name</h5>
+                            <p>
+                                @pro.Title
+                            </p>
+                        </div>
+                        <div class="span4 alignR">
+                            <form class="form-horizontal qtyFrm">
+                                <h3>@pro.Price VNĐ</h3>
+                                <div class="btn-group">
+                                    <a href="@Url.Action("AddCart","Cart", new { @iIdPro = pro.ID, @strURL = Request.Url.ToString()})" class="defaultBtn"><span class=" icon-shopping-cart"></span>Thêm vào giỏ hàng</a>
+                                    <a href="@Url.Action("productDetails", "Home", new { id = pro.ID})" class="shopBtn">Xem</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                }
+                <hr class="soft">
+            </div>
+        </div>
+    </div>
+</div>

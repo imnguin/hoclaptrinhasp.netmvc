@@ -1,0 +1,1 @@
+﻿<a href="@Url.Action("cart", "Cart", new {@strURL = Request.Url.ToString()})"><span class="icon-shopping-cart"></span> @ViewBag.TotalQty Item(s) - <span class="badge badge-warning">@String.Format("{0:0,0}", ViewBag.TotalPrice) VNĐ</span></a>

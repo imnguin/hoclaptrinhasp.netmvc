@@ -1,0 +1,37 @@
+﻿@using Web_ASPMVC.Models
+@{
+    Customer customer = (Customer)Session["Username"];
+}
+<ul class="nav pull-right">
+    @if (customer != null)
+    {
+        <li><a>Xin chào! @customer.Name</a></li>
+
+        <li>
+            @Html.ActionLink("Đăng xuất", "Logout", "Home")
+        </li>
+    }
+    else
+    {
+        <li class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#"><span class="icon-lock"></span> Đăng nhập <b class="caret"></b></a>
+            <div class="dropdown-menu">
+                <form class="form-horizontal loginFrm" action="/Home/Login" method="post">
+                    <div class="control-group">
+                        <input type="text" class="span2" id="UserName" name="UserName" placeholder="Tài khoản">
+                    </div>
+                    <div class="control-group">
+                        <input type="password" class="span2" id="Password" name="Password" placeholder="Mật khẩu">
+                    </div>
+                    <div class="control-group">
+                        <label class="checkbox">
+                            <input type="checkbox"> Nhớ mật khẩu?
+                        </label>
+                        <button type="submit" class="shopBtn btn-block">Đăng nhập</button>
+                    </div>
+                </form>
+            </div>
+        </li>
+    }
+
+</ul>

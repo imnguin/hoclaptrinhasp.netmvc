@@ -1,0 +1,72 @@
+﻿@using Web_ASPMVC.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<User>
+@{
+    ViewBag.Title = "ListUser";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2>Danh sách nhân viên</h2>
+<p>
+    @Html.ActionLink("Thêm mới", "CreateUser")
+</p>
+<div class="row grid-responsive">
+    <div class="column ">
+        <div class="card">
+            <div class="card-title">
+                <h3 style="text-align: center; font-weight: bold">SẢN PHẨM</h3>
+            </div>
+            <div class="card-block">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                Tên tài khoản
+                            </th>
+                            <th>
+                                Mật khẩu
+                            </th>
+                            <th>
+                                Tên nhân viên
+                            </th>
+                            <th>
+                                Ảnh đại diện
+                            </th>
+                            <th>Tác vụ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.UserName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PassWord)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    <img src="~/Content/Images/User/@item.Avatar" width="100" height="100" />
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Chỉnh sửa", "EditUser", new { id = item.ID }) |
+                                    @Html.ActionLink("Xóa", "DeleteUser", new { id = item.ID })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="SubPage">
+    @Html.PagedListPager(Model, page => Url.Action("ListProduct", new { page = page }))
+</div>
+<style>
+    .SubPage li {
+        display: inline;
+    }
+</style>

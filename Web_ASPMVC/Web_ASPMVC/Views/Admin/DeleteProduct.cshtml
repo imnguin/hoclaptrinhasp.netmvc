@@ -1,0 +1,123 @@
+﻿@model Web_ASPMVC.Models.Product
+
+@{
+    ViewBag.Title = "DeleteProduct";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="row grid-responsive">
+    <div class="column ">
+        <div class="card">
+            <div class="card-title">
+                <h3 style="text-align: center; font-weight: bold">XÓA SẢN PHẨM</h3>
+            </div>
+            <div class="card-block">
+
+                <h3 style="text-align: center; font-weight: bold; color:red">Bạn có chắc muốn xóa sản phẩm?</h3>
+                <div>
+                    <h4>Product</h4>
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            Tên sản phẩm
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Name)
+                        </dd>
+
+                        <dt>
+                            Hình ảnh
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Thumbnail)
+                        </dd>
+
+                        <dt>
+                            Mô tả
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Description)
+                        </dd>
+
+                        <dt>
+                            Trạng thái
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Status)
+                        </dd>
+
+                        <dt>
+                            Danh mục
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.IdCategory)
+                        </dd>
+
+                        <dt>
+                            Mô tả ngắn
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Title)
+                        </dd>
+
+                        <dt>
+                            Nhóm
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Group)
+                        </dd>
+
+                        <dt>
+                            Màu
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Color)
+                        </dd>
+
+                        <dt>
+                            Ngày cập nhật
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.UpdateTime)
+                        </dd>
+
+                        <dt>
+                            Đơn giá
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Price)
+                        </dd>
+
+                        <dt>
+                            Số lượng tồn kho
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Items_Left)
+                        </dd>
+
+                    </dl>
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color">
+                            <input type="submit" value="Xóa" class="btn btn-default" /> |
+                            @Html.ActionLink("Trở về", "ListProduct")
+                        </div>
+                    }
+            </div>
+        </div>
+    </div>
+</div>
+</div>

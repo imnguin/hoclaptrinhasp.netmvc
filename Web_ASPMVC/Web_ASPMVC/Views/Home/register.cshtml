@@ -1,0 +1,82 @@
+﻿@{
+    ViewBag.Title = "register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.Action("LeftMenu", "Home")
+<div class="span9">
+    <ul class="breadcrumb">
+        <li><a href="index.html">Trang chủ</a> <span class="divider">/</span></li>
+        <li class="active">Đăng ký tài khoản</li>
+    </ul>
+    <h3>Đăng ký tài khoản</h3>
+    <hr class="soft" />
+    <div class="well">
+        @using (Html.BeginForm("register", "Home", FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            @Html.AntiForgeryToken()
+            <h3>Thông tin cá nhân</h3>
+            <div class="control-group">
+                <label class="control-label" for="name">Họ và Tên <sup>*</sup></label>
+                <div class="controls">
+                    <input type="text" id="Name" name="Name" placeholder="Họ và tên">
+                    @ViewData["error1"]
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="username">Tài khoản<sup>*</sup></label>
+                <div class="controls">
+                    <input type="text" id="Username" name="Username" placeholder="Tài khoản">
+                    @ViewData["error2"]
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="password">Mật khẩu<sup>*</sup></label>
+                <div class="controls">
+                    <input type="password" id="Password" name="Password" placeholder="Mật khẩu">
+                    @ViewData["error3"]
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="enterthepassword">Nhập lại mật khẩu<sup>*</sup></label>
+                <div class="controls">
+                    <input type="password" id="Enterthepassword" name="Enterthepassword" placeholder="Nhập lại mật khẩu">
+                    @ViewData["error4"]
+                    @ViewData["error7"]
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="email">Email <sup>*</sup></label>
+                <div class="controls">
+                    <input type="text" id="Email" name="Email" placeholder="Email">
+                    @ViewData["error5"]
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="address">Địa chỉ <sup>*</sup></label>
+                <div class="controls">
+                    <input type="text" id="Address" name="Address" placeholder="Địa chỉ">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="phone">Điện thoại <sup>*</sup></label>
+                <div class="controls">
+                    <input type="text" id="Phone" name="Phone" placeholder="Điện thoại">
+                    @ViewData["error6"]
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="birthday">Ngày sinh <sup>*</sup></label>
+                <div class="controls">
+                    <input type="date" id="Birthday" name="Birthday" placeholder="Ngày sinh">
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <input type="submit" value="Đăng ký" class="exclusive shopBtn">
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

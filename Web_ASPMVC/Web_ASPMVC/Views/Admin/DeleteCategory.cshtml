@@ -1,0 +1,51 @@
+﻿@model Web_ASPMVC.Models.Category
+
+@{
+    ViewBag.Title = "DeleteCategory";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="row grid-responsive">
+    <div class="column ">
+        <div class="card">
+            <div class="card-title">
+                <h3 style="text-align: center; font-weight: bold">XÓA DANH MỤC</h3>
+            </div>
+            <div class="card-block">
+
+                <h3 style="text-align: center; font-weight: bold; color:red">Bạn có chắc muốn xóa danh mục đã chọn?</h3>
+                <div>
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            
+                        </dt>
+
+                        <dd style="font-weight:bold">
+                            Tên danh mục: @Html.DisplayFor(model => model.Name)
+                        </dd>
+
+                        <dt>
+                            
+                        </dt>
+
+                        <dd style="font-weight:bold">
+                            Trạng thái: @Html.DisplayFor(model => model.Status)
+                        </dd>
+
+                    </dl>
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color">
+                            <input type="submit" value="Xóa" class="btn btn-default" /> |
+                            @Html.ActionLink("Trở về", "ListCategory")
+                        </div>
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

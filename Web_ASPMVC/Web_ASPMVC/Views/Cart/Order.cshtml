@@ -1,0 +1,82 @@
+﻿@using Web_ASPMVC.Models
+@model List<Cart>
+@{
+    ViewBag.Title = "Đơn đặt hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="span12">
+    <ul class="breadcrumb">
+        <li><a href="@Url.Action("Index", "Home")">Trang chủ</a> <span class="divider">/</span></li>
+        <li class="active">Đặt hàng</li>
+    </ul>
+    <div class="well well-small">
+
+        <table class="table table-bordered table-condensed">
+            <tr>
+                <th>Ảnh sản phẩm</th>
+                <th>Tên sản phẩm</th>
+                <th>Màu sắc</th>
+                <th>Số lượng</th>
+                <th>Đơn giá</th>
+                <th>Thành tiền</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td><img width="100" height="100" src="~/Content/Images/Product/@item.sThumbnailPrdouct" alt=""></td>
+                    <td>@item.sNameProduct</td>
+                    <td>@item.sColor</td>
+                    <td>@item.iQtyPrdouct</td>
+                    <td>@String.Format("{0:0,0}", item.dPriceProduct)</td>
+                    <td>@String.Format("{0:0,0}", item.dTotalPriceProduct)</td>
+                </tr>
+            }
+            <tr>
+                <td colspan="9" class="alignR">Tổng tiền:	</td>
+                <td>@String.Format("{0:0,0}", ViewBag.TotalPrice) VNĐ</td>
+            </tr>
+        </table><br />
+        
+        <h2 style="text-align:center">THÔNG TIN ĐẶT HÀNG</h2>
+        @{ 
+            Customer customer = (Customer)Session["Username"];
+        }
+    <table align="center">
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+            <tr style="height:40px">
+                <td>Họ tên: </td>
+                <td style="font-weight:bold">@customer.Name</td>
+            </tr>
+            <tr style="height:40px">
+                <td>Địa chỉ: </td>
+                <td style="font-weight:bold">@customer.Address</td>
+            </tr>
+            <tr style="height:40px">
+                <td>Email: </td>
+                <td style="font-weight:bold">@customer.Email</td>
+            </tr>
+            <tr style="height:40px">
+                <td>Điện thoại: </td>
+                <td style="font-weight:bold">@customer.Phone</td>
+            </tr>
+            <tr style="height:40px">
+                <td>Ngày đặt: </td>
+                <td style="font-weight:bold">@DateTime.Now.ToShortDateString()</td>
+            </tr>
+            <tr style="height:40px">
+                <td>Chọn ngày có thể giao hàng: </td>
+                <td><input type="date" name="Shiptime" />
+                <td>
+            </tr>
+            <tr style="height:40px">
+                <td></td>
+                <td><input type="submit" class="btn defaultBtn" value="Đặt hàng" />
+                <td>
+            </tr>
+        }
+    </table>
+    <a href="@Url.Action("cart", "Cart")" class="shopBtn btn-large"><span class="icon-arrow-left"></span>Trở về giỏ hàng</a>    </div>
+</div>
+

@@ -1,0 +1,93 @@
+﻿@using Web_ASPMVC.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<lstOrder>
+@{
+    ViewBag.Title = "Danh sách đơn đặt hàng";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="row grid-responsive">
+    <div class="column ">
+        <div class="card">
+            <div class="card-title">
+                <h3 style="text-align: center; font-weight: bold">ĐƠN HÀNG</h3>
+            </div>
+            <div class="card-block">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="text-align: center">
+                                Khách hàng
+                            </th>
+                            <th style="text-align: center">
+                                Sản phẩm
+                            </th>
+                            <th style="text-align: center">
+                                Số lượng
+                            </th>
+                            <th style="text-align: center">
+                                Màu sắc
+                            </th>
+                            <th style="text-align: center">
+                                Giá
+                            </th>
+                            <th style="text-align: center">
+                                Ngày đặt
+                            </th>
+                            <th style="text-align: center">
+                                Địa chỉ
+                            </th>
+                            <th style="text-align: center">
+                                SĐT
+                            </th>
+                            <th style="text-align: center">
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td style="text-align: center">
+                                    @item.NameCustomer
+                                </td>
+                                <td style="text-align: center">
+                                    @item.NameProduct
+                                </td>
+                                <td style="text-align: center">
+                                    @item.Qty
+                                </td>
+                                <td style="text-align: center">
+                                    @item.Color
+                                </td>
+                                <td style="text-align: center">
+                                    @item.Price
+                                </td>
+                                <td style="text-align: center">
+                                    @item.OrderTime
+                                </td>
+                                <td style="text-align: center">
+                                    @item.Address
+                                </td>
+                                <td style="text-align: center">
+                                    @item.Phone
+                                </td>
+                                <td style="text-align: center">
+                                    <a href="@Url.Action("OrderDetails","Admin", new { id = item.IdOrder })">Xem</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="SubPage">
+    @Html.PagedListPager(Model, page => Url.Action("ListOrder", new { page = page }))
+</div>
+<style>
+    .SubPage li {
+        display: inline;
+    }
+</style>

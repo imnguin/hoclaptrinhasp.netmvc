@@ -1,0 +1,46 @@
+﻿@using Web_ASPMVC.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<Product>
+@{
+    ViewBag.Title = "listView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.Action("LeftMenu", "Home")
+<div class="span9">
+    <div class="well well-small">
+        @foreach (var item in Model)
+        {
+            <div class="row-fluid">
+                <div class="span2">
+                    <img src="~/Content/Images/Product/@item.Thumbnail" alt="@item.Name">
+                </div>
+                <div class="span6">
+                    <h5>@Html.DisplayFor(m => item.Name)</h5>
+                    <p>
+                        @Html.DisplayFor(m => item.Title)
+                    </p>
+                </div>
+                <div class="span4 alignR">
+                    <form class="form-horizontal qtyFrm">
+                        <h3>@item.Price</h3>
+                        <div class="btn-group">
+                            <a href="@Url.Action("AddCart","Cart", new { @iIdPro = item.ID, @strURL = Request.Url.ToString()})" class="defaultBtn"><span class=" icon-shopping-cart"></span> Thêm vào giỏ hàng</a>
+                            <a href="@Url.Action("productDetails", "Home", new { id = item.ID})" class="shopBtn">Xem</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="soften">
+        }
+    </div>
+    <div class="SubPage">
+        @Html.PagedListPager(Model, page => Url.Action("listView", new { page = page }))
+    </div>
+    <style>
+        .SubPage li {
+            display:inline;
+        }
+    </style>
+</div>
+
+

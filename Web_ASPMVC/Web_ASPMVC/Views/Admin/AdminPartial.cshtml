@@ -1,0 +1,7 @@
+﻿@using Web_ASPMVC.Models
+@{ User user = (User)Session["admin"];}
+<img src="~/Content/Images/User/@user.Avatar" alt="profile photo" class="circle float-left profile-photo" width="50" height="50">
+<div class="username">
+    <h4>@user.Name</h4>
+    <p>@user.UserName</p>
+</div>

@@ -1,0 +1,22 @@
+﻿<div id="sidebar" class="span3">
+    <div class="well well-small">
+        <ul class="nav nav-list">
+            @foreach (var ct in ViewBag.cate)
+            {
+                <li><a href="@Url.Action("product", "Home", new { id = ct.ID})"><span class="icon-chevron-right"></span>@ct.Name</a></li>
+            }
+        </ul>
+    </div>
+    <div class="well well-small alert alert-warning cntr">
+        <h2>Giảm giá đến 20%</h2>
+        <p>
+            Áp dụng cho khách hàng mua tại shop <br><br><a class="defaultBtn" href="#">Xem</a>
+        </p>
+    </div>
+    <div class="well well-small"><a href="#"><img src="~/Content/Images/paypal.jpg" alt="payment method paypal"></a></div>
+
+    <a class="shopBtn btn-block" href="#">Sản phẩm sắp ra mắt <br><small>Xem</small></a>
+    <br>
+    <br>
+</div>
+

@@ -1,0 +1,79 @@
+﻿@using Web_ASPMVC.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<Product>
+@{
+    ViewBag.Title = "Danh sách sản phẩm";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h5 class="mt-2">@Html.ActionLink("Thêm mới", "CreateProduct")</h5><a class="anchor" name="tables"></a>
+<div class="row grid-responsive">
+    <div class="column ">
+        <div class="card">
+            <div class="card-title">
+                <h3 style="text-align: center; font-weight: bold">SẢN PHẨM</h3>
+            </div>
+            <div class="card-block">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="text-align: center">
+                                Tên sản phẩm
+                            </th>
+                            <th style="text-align: center">
+                                Ảnh
+                            </th>
+                            <th style="text-align: center">
+                                Nhóm sản phẩm
+                            </th>
+                            <th style="text-align: center">
+                                Đơn giá
+                            </th>
+                            <th style="text-align: center">
+                                Số lượng tồn
+                            </th>
+                            <th style="text-align: center">Tác vụ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td style="text-align: center">
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td style="text-align: center">
+                                <img src="~/Content/Images/Product/@item.Thumbnail" width="100" height="150" />
+                            </td>
+                            @*<td style="text-align: center">
+            @Html.Raw(item.Description)
+        </td>*@
+                            <td style="text-align: center">
+                                @Html.DisplayFor(modelItem => item.Group)
+                            </td>
+                            <td style="text-align: center">
+                                @Html.DisplayFor(modelItem => item.Price)
+                            </td>
+                            <td style="text-align: center">
+                                @Html.DisplayFor(modelItem => item.Items_Left)
+                            </td>
+                            <td style="text-align: center">
+                                @Html.ActionLink("Sửa", "EditProduct", new { id = item.ID }) |
+                                @Html.ActionLink("Chi tiết", "DetailProduct", new { id = item.ID }) |
+                                @Html.ActionLink("Xóa", "DeleteProduct", new { id = item.ID })
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="SubPage">
+    @Html.PagedListPager(Model, page => Url.Action("ListProduct", new { page = page }))
+</div>
+<style>
+    .SubPage li {
+        display: inline;
+    }
+</style>

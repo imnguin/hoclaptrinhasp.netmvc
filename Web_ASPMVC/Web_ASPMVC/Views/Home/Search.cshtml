@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string SearchString = Request.QueryString["SearchString"];
+}
+@Html.Action("LeftMenu", "Home")
+<div class="span9">
+    <div class="well well-small">
+        <div class="row-fluid">
+            <ul class="thumbnails">
+                @{
+                    if (SearchString == "")
+                    {
+                        @ViewData["error1"]
+                    }
+                    else
+                    {
+                        @ViewData["error2"]
+                        foreach (var item in Model)
+                        {
+                            <li class="span4">
+                                <div class="thumbnail">
+                                    <a href="product_details.html" class="overlay"></a>
+                                    <a class="zoomTool" href="@Url.Action("productDetails", "Home", new { id = item.ID})" title="add to cart"><span class="icon-search"></span> Xem chi tiết</a>
+                                    <a href="product_details.html"><img src="~/Content/Images/Product/@item.Thumbnail" alt=""></a>
+                                    <div class="caption cntr">
+                                        <p>@item.Name</p>
+                                        <p><strong>@item.Price VNĐ</strong></p>
+                                        <h4><a class="shopBtn" href="@Url.Action("AddCart","Cart", new { @iIdPro = item.ID, @strURL = Request.Url.ToString()})" title="add to cart"> Thêm vào giỏ hàng </a></h4>
+                                        <br class="clr">
+                                    </div>
+                                </div>
+                            </li>
+                        }
+
+                    }
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script></script>
